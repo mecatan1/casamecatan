@@ -419,7 +419,6 @@
   <!-- SCRIPT DE SINCRONIZACIÓN -->
   <script>
     const SHEET_ID = '14mE2RHs3U3L8a5BgOPfOOvJAPF3k7Ov5h7ANDQMeXQA';
-    const AIRBNB_ICAL_URL = 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
 
     let fechasOcupadas = new Set();
     let fechaInicioSel = null;
@@ -466,12 +465,12 @@
       return (match && match[2].length === 11) ? match[2] : null;
     }
 
-    // Extractor robusto de iCal de Airbnb que lee directo tu enlace
-    async function cargarCalendarioAirbnb() {
+    async function cargarCalendarioAirbnb(icalUrl) {
+      if (!icalUrl || !icalUrl.startsWith('http')) return;
       const proxies = [
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(AIRBNB_ICAL_URL)}&_t=${Date.now()}`,
-        `https://corsproxy.io/?url=${encodeURIComponent(AIRBNB_ICAL_URL)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(AIRBNB_ICAL_URL)}`
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(icalUrl)}&_t=${Date.now()}`,
+        `https://corsproxy.io/?url=${encodeURIComponent(icalUrl)}`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(icalUrl)}`
       ];
 
       let icalText = null;
@@ -583,7 +582,7 @@
       renderizarCalendario();
     }
 
-    // Sincronización directa con Google Sheets (usando tu ID exacto)
+    // Sincronización directa con Google Sheets
     async function sincronizarConGoogleSheets() {
       const endpoints = [
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&_t=${Date.now()}`,
@@ -604,15 +603,19 @@
         } catch (e) {}
       }
 
-      if (!csvText) return;
-      const data = parseCSV(csvText);
+      if (!csvText) {
+        renderizarCalendario();
+        return;
+      }
 
+      const data = parseCSV(csvText);
       const galeria = [];
       const amenidades = [];
       const precios = [];
       const guia = [];
       let waTel = '523271080200';
       let waMsg = 'Hola, me interesa reservar Casa Mecatán';
+      let icalEncontrado = '';
 
       for (let i = 1; i < data.length; i++) {
         const [cat, colB, colC, colD, colE] = data[i];
@@ -653,9 +656,14 @@
           guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:14px;margin-top:8px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
         }
         if (cat === 'Bloqueo') {
-          const start = colB.trim().replace(/-/g, '');
-          const end = (colC && colC.trim()) ? colC.trim().replace(/-/g, '') : start;
-          bloquearRangoFechas(start, end);
+          // Si la categoría es Bloqueo, tomamos el link iCal o un rango de fechas manual
+          if (colB && colB.startsWith('http')) {
+            icalEncontrado = colB.trim();
+          } else if (colB) {
+            const start = colB.trim().replace(/-/g, '');
+            const end = (colC && colC.trim()) ? colC.trim().replace(/-/g, '') : start;
+            bloquearRangoFechas(start, end);
+          }
         }
       }
 
@@ -667,11 +675,14 @@
       const finalWA = `https://wa.me/${waTel}?text=${encodeURIComponent(waMsg)}`;
       document.getElementById('ui-btn-wa').href = finalWA;
       document.getElementById('wa-float').href = finalWA;
+
+      // Cargar calendario iCal si se detectó en la hoja o usar el enlace predeterminado
+      const linkIcalFinal = icalEncontrado || 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
+      await cargarCalendarioAirbnb(linkIcalFinal);
     }
 
-    window.addEventListener('DOMContentLoaded', async () => {
-      await sincronizarConGoogleSheets();
-      await cargarCalendarioAirbnb();
+    window.addEventListener('DOMContentLoaded', () => {
+      sincronizarConGoogleSheets();
     });
   </script>
 </body>
