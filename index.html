@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Casa Mecatán | Renta Vacacional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,300&family=DM+Sans:wght@300;400;500;700&display=swap">
+  
+  <style>
+    :root {
+      --forest: #1a3a2a;
+      --gold: #c9a44a;
+      --gold2: #e8c46a;
+      --sand: #f5efe6;
+      --white: #fdfaf6;
+      --ink: #1c2a22;
+      --serif: 'Fraunces', Georgia, serif;
+      --body: 'DM Sans', sans-serif;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--body); background: var(--white); color: var(--ink); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navegación */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 32px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(26,58,42,0.98); color: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 24px; color: var(--white); }
+    .nav-logo span { color: var(--gold2); font-style: italic; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-size: 14px; text-transform: uppercase; letter-spacing: .05em; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold2); }
+    .btn-reservar {
+      background: var(--gold); color: var(--forest) !important; padding: 10px 24px;
+      border-radius: 30px; font-weight: 700; transition: transform 0.3s, background 0.3s;
+    }
+    .btn-reservar:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* Hero Section */
+    #hero {
+      min-height: 85vh; display: flex; flex-direction: column; justify-content: center;
+      align-items: center; text-align: center; background: var(--forest); color: white;
+      padding: 140px 24px 80px; position: relative;
+    }
+    .hero-title { font-family: var(--serif); font-size: clamp(45px, 8vw, 80px); line-height: 1.1; margin-bottom: 20px; }
+    .hero-sub { max-width: 600px; font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 40px; }
+    
+    /* QR Box */
+    .qr-box {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      padding: 20px; border-radius: 16px; backdrop-filter: blur(10px);
+      display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 40px;
+    }
+    .qr-box img { width: 120px; height: 120px; border-radius: 8px; background: white; padding: 4px; }
+    .qr-box span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold2); }
+
+    /* Secciones Generales */
+    section { padding: 90px 24px; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block; }
+    .section-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 48px); color: var(--forest); }
+
+    /* Grids Dinámicos */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+    /* Tarjetas de Fotos/Videos */
+    .media-card { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: white; transition: transform 0.3s; }
+    .media-card:hover { transform: translateY(-5px); }
+    .media-card img, .media-card iframe { width: 100%; height: 260px; object-fit: cover; border: none; display: block; }
+    .media-card h3 { padding: 16px 20px; font-size: 16px; color: var(--forest); }
+
+    /* Tarjetas de Amenidades */
+    .amenidad-card {
+      background: var(--sand); padding: 30px 20px; border-radius: 16px; text-align: center;
+      border: 1px solid rgba(0,0,0,0.03); transition: transform 0.3s;
+    }
+    .amenidad-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .amenidad-icon { font-size: 42px; margin-bottom: 16px; display: block; }
+    .amenidad-card h3 { font-size: 16px; color: var(--forest); margin-bottom: 8px; }
+    .amenidad-card p { font-size: 14px; color: #555; }
+
+    /* Tarjetas de Precios */
+    .precio-card {
+      background: white; border: 2px solid var(--sand); border-radius: 20px; padding: 40px 30px;
+      text-align: center; position: relative; transition: all 0.3s;
+    }
+    .precio-card.destacado { border-color: var(--forest); box-shadow: 0 15px 40px rgba(26,58,42,0.1); }
+    .precio-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--forest); font-size: 11px; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .precio-monto { font-size: 48px; font-family: var(--serif); color: var(--forest); margin: 16px 0; }
+
+    /* Tarjetas de Guía Local */
+    .guia-card {
+      background: white; border-radius: 16px; padding: 24px; border: 1px solid rgba(0,0,0,0.06);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+    }
+    .guia-tag { font-size: 11px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 6px 12px; border-radius: 20px; width: fit-content; font-weight: 700; }
+    .guia-card h3 { font-size: 18px; color: var(--forest); }
+    .guia-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--forest); color: white !important; padding: 10px 20px; border-radius: 8px; font-size: 14px; transition: background 0.3s;
+    }
+    .guia-btn:hover { background: var(--gold); color: var(--forest) !important; }
+
+    /* WhatsApp */
+    .wa-float {
+      position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+      width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 32px; box-shadow: 0 8px 25px rgba(37,211,102,0.4); z-index: 999; transition: transform 0.3s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media(max-width: 768px) {
+      .nav-links { display: none; }
+      #hero { padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo" id="ui-logo">Casa <span>Mecatán</span></div>
+    <div class="nav-links">
+      <a href="#galeria">Instalaciones</a>
+      <a href="#amenidades">Amenidades</a>
+      <a href="#precios">Tarifas</a>
+      <a href="#guia">Guía Local</a>
+      <a href="#" id="ui-nav-wa" class="btn-reservar" target="_blank">Contactar</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="hero">
+    <h1 class="hero-title" id="ui-title">Cargando...</h1>
+    <p class="hero-sub" id="ui-subtitle">Sincronizando con tu base de datos en tiempo real.</p>
+    
+    <div class="qr-box" id="ui-qr-box" style="display: none;">
+      <span id="ui-qr-text">Reserva en Airbnb</span>
+      <img id="ui-qr-img" src="" alt="QR Airbnb">
+    </div>
+
+    <a href="#galeria" class="btn-reservar" style="padding: 16px 40px; font-size: 16px;">Explorar Casa</a>
+  </header>
+
+  <!-- Galería -->
+  <section id="galeria">
+    <div class="section-header">
+      <span class="section-label">Recorrido</span>
+      <h2 class="section-title">Nuestras Instalaciones</h2>
+    </div>
+    <div class="grid-3" id="galeria-grid"></div>
+  </section>
+
+  <!-- Amenidades -->
+  <section id="amenidades">
+    <div class="section-header">
+      <span class="section-label">Comodidades</span>
+      <h2 class="section-title">Lo que ofrece este alojamiento</h2>
+    </div>
+    <div class="grid-4" id="amenidades-grid"></div>
+  </section>
+
+  <!-- Precios -->
+  <section id="precios" style="background: var(--sand);">
+    <div class="section-header">
+      <span class="section-label">Tarifas</span>
+      <h2 class="section-title">Precios Transparentes</h2>
+    </div>
+    <div class="grid-3" style="justify-content: center;" id="precios-grid"></div>
+  </section>
+
+  <!-- Guía Local -->
+  <section id="guia">
+    <div class="section-header">
+      <span class="section-label">Concierge</span>
+      <h2 class="section-title">Recomendaciones del Anfitrión</h2>
+    </div>
+    <div class="grid-3" id="guia-grid"></div>
+  </section>
+
+  <a id="wa-float" href="#" target="_blank" class="wa-float">💬</a>
+
+  <!-- LÓGICA DE CONEXIÓN A GOOGLE SHEETS -->
+  <script>
+    // ID de tu Google Sheet
+    const SHEET_ID = '14mE2RHs3U3L8a5BgOPfOOvJAPF3k7Ov5h7ANDQMeXQA';
+
+    // Función para procesar CSV estándar
+    function parseCSV(str) {
+      const arr = [];
+      let quote = false, row = 0, col = 0;
+      for (let c = 0; c < str.length; c++) {
+        let cc = str[c], nc = str[c+1];
+        arr[row] = arr[row] || [];
+        arr[row][col] = arr[row][col] || '';
+        if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+        if (cc == '"') { quote = !quote; continue; }
+        if (cc == ',' && !quote) { ++col; continue; }
+        if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+        if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+        if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+        arr[row][col] += cc;
+      }
+      return arr;
+    }
+
+    // Extraer ID de YouTube para los iframes
+    function getYoutubeID(url) {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    async function cargarDatos() {
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv`;
+        const response = await fetch(url);
+        const csvText = await response.text();
+        const data = parseCSV(csvText);
+
+        const galeriaHTML = [];
+        const amenidadesHTML = [];
+        const preciosHTML = [];
+        const guiaHTML = [];
+        let waTelefono = '';
+        let waMensaje = '';
+
+        // Ignorar la primera fila (encabezados) y recorrer datos
+        for (let i = 1; i < data.length; i++) {
+          const [cat, clave_tit, valor_url, desc, extra] = data[i];
+          if (!cat) continue;
+
+          if (cat === 'Configuracion') {
+            if (clave_tit === 'Nombre_Casa') {
+              document.getElementById('ui-title').innerText = valor_url;
+              document.getElementById('ui-logo').innerHTML = `${valor_url.split(' ')[0]} <span>${valor_url.split(' ').slice(1).join(' ')}</span>`;
+              document.title = valor_url + " | Renta Vacacional";
+            }
+            if (clave_tit === 'Subtitulo') document.getElementById('ui-subtitle').innerText = valor_url;
+            if (clave_tit === 'Color_Principal') document.documentElement.style.setProperty('--forest', valor_url);
+            if (clave_tit === 'Color_Acento') document.documentElement.style.setProperty('--gold', valor_url);
+            if (clave_tit === 'Telefono_WhatsApp') waTelefono = valor_url;
+            if (clave_tit === 'Mensaje_WhatsApp') waMensaje = valor_url;
+            if (clave_tit === 'URL_Airbnb' && valor_url.includes('http')) {
+              document.getElementById('ui-qr-box').style.display = 'flex';
+              document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(valor_url)}`;
+            }
+          }
+
+          if (cat === 'Foto' || cat === 'Video') {
+            let media = cat === 'Video' 
+              ? `<iframe src="https://www.youtube.com/embed/${getYoutubeID(valor_url)}" allowfullscreen></iframe>`
+              : `<img src="${valor_url}" alt="${clave_tit}">`;
+            galeriaHTML.push(`<div class="media-card">${media}<h3>${clave_tit}</h3></div>`);
+          }
+
+          if (cat === 'Amenidad') {
+            amenidadesHTML.push(`<div class="amenidad-card"><span class="amenidad-icon">${clave_tit}</span><h3>${valor_url}</h3><p>${desc}</p></div>`);
+          }
+
+          if (cat === 'Tarifa') {
+            const isDestacado = extra === 'Destacado' ? 'destacado' : '';
+            const badge = extra ? `<div class="precio-badge">${extra}</div>` : '';
+            preciosHTML.push(`
+              <div class="precio-card ${isDestacado}">
+                ${badge}
+                <h3>${clave_tit}</h3>
+                <div class="precio-monto">${valor_url}</div>
+                <p>${desc}</p>
+              </div>`);
+          }
+
+          if (cat === 'Guia') {
+            guiaHTML.push(`
+              <div class="guia-card">
+                <div>
+                  <div class="guia-tag">${extra}</div>
+                  <h3>${clave_tit}</h3>
+                  <p style="font-size: 14px; margin-top: 8px;">${desc}</p>
+                </div>
+                <a href="${valor_url}" target="_blank" class="guia-btn">📍 Ver en Google Maps</a>
+              </div>`);
+          }
+        }
+
+        // Renderizar en pantalla
+        document.getElementById('galeria-grid').innerHTML = galeriaHTML.join('');
+        document.getElementById('amenidades-grid').innerHTML = amenidadesHTML.join('');
+        document.getElementById('precios-grid').innerHTML = preciosHTML.join('');
+        document.getElementById('guia-grid').innerHTML = guiaHTML.join('');
+
+        // Configurar enlaces WhatsApp
+        const linkWA = `https://wa.me/${waTelefono}?text=${encodeURIComponent(waMensaje)}`;
+        document.getElementById('wa-float').href = linkWA;
+        document.getElementById('ui-nav-wa').href = linkWA;
+
+      } catch (error) {
+        console.error("Error cargando Google Sheets:", error);
+        document.getElementById('ui-subtitle').innerText = "Falta vincular el ID de Google Sheets en el código.";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', cargarDatos);
+  </script>
+</body>
+</html>
