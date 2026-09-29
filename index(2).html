@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="meta-title">Casa Mecatán · Tu refugio con alberca en Nayarit</title>
+<meta name="description" content="Casa vacacional privada con alberca en Mecatán, Nayarit. Reserva directa por WhatsApp o Airbnb.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;1,300&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#1a3a2a;--leaf:#3d7a56;--sand:#f5efe6;--sand2:#ede4d6;--gold:#c9a44a;--gold2:#e8c46a;--ink:#1c2a22;--ink3:#5a6e62;--white:#fdfaf6;--serif:'Fraunces',Georgia,serif;--body:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;background:color-mix(in srgb,var(--forest) 97%,transparent);color:#fff;box-shadow:0 4px 25px rgba(0,0,0,.15)}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:300}
+.nav-logo span{color:var(--gold2);font-style:italic}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.85);transition:color .2s}
+.nav-links a:hover{color:var(--gold2)}
+.btn-reservar{background:var(--gold);color:var(--forest)!important;padding:9px 20px;border-radius:30px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:0;font-family:var(--body);transition:transform .2s,background .2s}
+.btn-reservar:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.6);padding:10px 22px;border-radius:30px;font-size:13px;color:#fff;transition:.3s}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.15)}
+#hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(180deg,color-mix(in srgb,var(--forest) 85%,transparent),var(--forest)),var(--forest);color:#fff;padding:130px 20px 70px}
+.hero-pretitle{color:var(--gold2);text-transform:uppercase;letter-spacing:.35em;font-size:11px;margin-bottom:14px;font-weight:500}
+.hero-title{font-family:var(--serif);font-size:clamp(40px,7vw,75px);line-height:1.1;margin-bottom:16px;font-weight:300}
+.hero-title em{font-style:italic;color:var(--gold2)}
+.hero-sub{max-width:600px;font-size:17px;color:rgba(255,255,255,.88);margin-bottom:28px;font-weight:300}
+.hero-badges,.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-badges{margin-bottom:32px}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:40px;padding:7px 16px;font-size:12px}
+section{padding:80px 20px;max-width:1100px;margin:0 auto}
+section[hidden]{display:none}
+.band{max-width:none;background:var(--sand)}
+.band>*{max-width:1060px;margin-left:auto;margin-right:auto}
+.section-header{text-align:center;margin-bottom:45px}
+.section-label{color:var(--gold);text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:700;display:block;margin-bottom:6px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,4.5vw,44px);color:var(--forest);font-weight:300}
+.section-title em{font-style:italic;color:var(--leaf)}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:18px}
+.media-card{border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06);background:#fff;cursor:pointer;transition:transform .25s}
+.media-card:hover{transform:translateY(-4px)}
+.media-card .thumb{position:relative;height:240px;background:var(--sand2)}
+.media-card img,.media-card iframe{width:100%;height:240px;object-fit:cover;border:0;display:block}
+.media-card h3{padding:14px 18px;font-size:14px;color:var(--forest);font-weight:500}
+.play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;padding-left:5px}
+.amenidad-card{background:var(--sand);padding:26px 18px;border-radius:14px;text-align:center;transition:transform .25s}
+.amenidad-card:hover{transform:translateY(-4px);background:#fff}
+.amenidad-icon{font-size:36px;display:block;margin-bottom:10px}
+.amenidad-card h3{font-size:15px;color:var(--forest);margin-bottom:6px}
+.amenidad-card p{font-size:13px;color:var(--ink3)}
+.cal-wrapper{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:22px;padding:28px 20px;box-shadow:0 10px 35px rgba(26,58,42,.06);max-width:860px;margin:0 auto}
+.cal-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.cal-nav-btn{background:var(--sand);border:0;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:15px;color:var(--forest);font-weight:700}
+.cal-nav-btn:hover{background:var(--gold2)}
+.cal-months{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:26px}
+.cal-month-title{text-align:center;font-weight:700;color:var(--forest);margin-bottom:12px;font-size:15px;letter-spacing:.05em}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-day-name{font-size:11px;font-weight:700;color:var(--ink3);padding-bottom:6px}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;border-radius:6px;background:var(--white);cursor:pointer;user-select:none}
+.cal-day.empty{background:transparent;cursor:default}
+.cal-day:not(.booked):not(.empty):hover{background:var(--gold2);color:var(--forest);font-weight:700}
+.cal-day.booked{background:#ffe3e3;color:#b73232;text-decoration:line-through;opacity:.75}
+.cal-day.inrange{background:color-mix(in srgb,var(--gold) 35%,white)}
+.cal-day.selected{background:var(--forest)!important;color:#fff!important;font-weight:700;text-decoration:none}
+.cal-legend{display:flex;gap:16px;justify-content:center;margin-top:20px;font-size:12px;flex-wrap:wrap}
+.cal-legend span{display:flex;align-items:center;gap:5px}
+.cal-dot{width:10px;height:10px;border-radius:3px}
+.precio-card{background:#fff;border:2px solid var(--sand2);border-radius:18px;padding:36px 26px;text-align:center;position:relative}
+.precio-card.destacado{border-color:var(--forest);box-shadow:0 12px 35px rgba(26,58,42,.09)}
+.precio-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--forest);font-size:10px;font-weight:700;padding:4px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.1em}
+.precio-monto{font-size:42px;font-family:var(--serif);color:var(--forest);margin:12px 0}
+.guia-card{background:#fff;border-radius:14px;padding:22px;border:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.guia-tag{font-size:10px;text-transform:uppercase;background:var(--sand);color:var(--forest);padding:3px 10px;border-radius:20px;width:fit-content;font-weight:700}
+.guia-card h3{font-size:17px;color:var(--forest)}
+.guia-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--forest);color:#fff;padding:9px 16px;border-radius:7px;font-size:13px;font-weight:500}
+.guia-btn:hover{background:var(--gold);color:var(--forest)}
+.reserva-box{background:var(--forest);color:#fff;border-radius:22px;padding:45px 24px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.qr-container{background:#fff;padding:12px;border-radius:14px;margin:18px 0 10px}
+.qr-container img{width:150px;height:150px;display:block}
+#lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,20,14,.95);align-items:center;justify-content:center;padding:16px}
+#lightbox img{max-width:92vw;max-height:88vh;border-radius:10px;object-fit:contain}
+#lightbox span{position:absolute;top:12px;right:20px;color:#fff;font-size:38px;cursor:pointer}
+.wa-float{position:fixed;bottom:22px;right:22px;background:#25d366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 20px rgba(37,211,102,.4);z-index:99}
+#dbg{display:none;position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#111;color:#0f0;font:12px monospace;padding:8px 12px;white-space:pre-wrap}
+@media(max-width:768px){.nav-links a:not(.btn-reservar){display:none}nav{padding:12px 16px}#hero{padding-top:100px}.cal-wrapper{padding:18px 10px}section{padding:60px 16px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo" id="ui-logo">Casa <span>Mecatán</span></div>
+  <div class="nav-links">
+    <a href="#galeria">Instalaciones</a><a href="#amenidades">Amenidades</a><a href="#calendario">Disponibilidad</a><a href="#precios">Tarifas</a><a href="#guia">Guía Local</a>
+    <a href="#calendario" class="btn-reservar">Reservar</a>
+  </div>
+</nav>
+
+<header id="hero">
+  <p class="hero-pretitle">Mecatán · Nayarit · México</p>
+  <h1 class="hero-title" id="ui-title">Casa <em>Mecatán</em></h1>
+  <p class="hero-sub" id="ui-subtitle">Tu refugio privado con alberca en el corazón de Nayarit. Naturaleza y paz.</p>
+  <div class="hero-badges">
+    <div class="badge">🏊 Alberca privada</div><div class="badge">🌿 Entorno natural</div><div class="badge">👨‍👩‍👧‍👦 Ideal familias</div><div class="badge">⭐ Anuncio en Airbnb</div>
+  </div>
+  <div class="hero-ctas">
+    <a href="#calendario" class="btn-reservar" style="padding:13px 30px">📅 Ver disponibilidad</a>
+    <a href="#galeria" class="btn-outline">Ver fotos</a>
+  </div>
+</header>
+
+<section id="galeria" hidden>
+  <div class="section-header"><span class="section-label">Instalaciones</span><h2 class="section-title">Conoce cada rincón de <em>tu próximo destino</em></h2></div>
+  <div class="grid-3" id="galeria-grid"></div>
+</section>
+
+<section id="amenidades" hidden>
+  <div class="section-header"><span class="section-label">Servicios</span><h2 class="section-title">Comodidades <em>incluidas</em></h2></div>
+  <div class="grid-4" id="amenidades-grid"></div>
+</section>
+
+<section id="calendario" class="band">
+  <div class="section-header">
+    <span class="section-label">Disponibilidad en vivo</span>
+    <h2 class="section-title">Calendario sincronizado con <em>Airbnb</em></h2>
+    <p style="margin-top:8px;color:var(--ink3);font-size:14px">Elige tu llegada y tu salida y confirma por WhatsApp.</p>
+  </div>
+  <div class="cal-wrapper">
+    <div class="cal-controls">
+      <button class="cal-nav-btn" id="cal-prev" aria-label="Mes anterior">&#8592;</button>
+      <span style="font-weight:700;color:var(--forest);font-size:13px;text-transform:uppercase">Navegar calendario</span>
+      <button class="cal-nav-btn" id="cal-next" aria-label="Mes siguiente">&#8594;</button>
+    </div>
+    <div class="cal-months" id="cal-months"></div>
+    <div class="cal-legend">
+      <span><i class="cal-dot" style="background:var(--forest)"></i> Seleccionado</span>
+      <span><i class="cal-dot" style="background:var(--white);border:1px solid #ccc"></i> Disponible</span>
+      <span><i class="cal-dot" style="background:#ffe3e3;border:1px solid #b73232"></i> Ocupado</span>
+    </div>
+    <div style="text-align:center;margin-top:22px">
+      <p id="cal-txt" style="font-size:14px;margin-bottom:10px;font-weight:500">Toca tu fecha de llegada y luego la de salida.</p>
+      <a id="cal-wa" href="#" target="_blank" rel="noopener" class="btn-reservar" style="display:none">💬 Confirmar fechas por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="precios" hidden>
+  <div class="section-header"><span class="section-label">Precios</span><h2 class="section-title">Tarifas <em>claras y transparentes</em></h2></div>
+  <div class="grid-3" style="max-width:780px;margin:0 auto" id="precios-grid"></div>
+</section>
+
+<section id="guia" hidden>
+  <div class="section-header"><span class="section-label">Qué visitar</span><h2 class="section-title">Recomendaciones <em>cerca de la casa</em></h2></div>
+  <div class="grid-3" id="guia-grid"></div>
+</section>
+
+<section id="reserva" style="padding-top:0">
+  <div class="reserva-box">
+    <h2 style="font-family:var(--serif);font-size:32px;margin-bottom:10px;font-weight:300">Reserva directa o en Airbnb</h2>
+    <p style="max-width:520px;color:rgba(255,255,255,.9);font-size:15px">Escríbenos por WhatsApp para la mejor tarifa sin comisiones, o escanea el código para reservar en Airbnb.</p>
+    <div class="qr-container"><img id="ui-qr" width="150" height="150" alt="QR del anuncio de Airbnb" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fwww.airbnb.mx%2Frooms%2F977651411960436380"></div>
+    <p style="font-size:11px;color:var(--gold2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px">Escanea con la cámara de tu celular</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a id="ui-wa" href="#" target="_blank" rel="noopener" class="btn-reservar" style="font-size:14px;padding:11px 26px">💬 Contactar por WhatsApp</a>
+      <a id="ui-airbnb" href="https://www.airbnb.mx/rooms/977651411960436380" target="_blank" rel="noopener" class="btn-outline" style="font-size:14px">🏠 Abrir en Airbnb</a>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox"><span>&times;</span><img id="lb-img" alt="Vista ampliada"></div>
+<a id="wa-float" class="wa-float" href="#" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">💬</a>
+<div id="dbg"></div>
+
+<script>
+/* ============ CONFIGURACIÓN ============ */
+const Q=new URLSearchParams(location.search);
+const SHEET_ID=Q.get('sheet')||'14mE2RHs3U3L8a5BgoPfOOvJAPF3k70v5h7ANdQmExQA'; // ID de tu Google Sheet (está en su URL, entre /d/ y /edit)
+const ICAL_DEFAULT='https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
+
+/* ============ UTILIDADES ============ */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+const isUrl=s=>/^https?:\/\//i.test(s||'');
+const pad=n=>String(n).padStart(2,'0');
+const key=(y,m,d)=>y+'-'+pad(m+1)+'-'+pad(d);
+const utc=s=>Date.UTC(+s.slice(0,4),+s.slice(5,7)-1,+s.slice(8,10));
+const nights=(a,b)=>{const o=[];for(let t=utc(a);t<utc(b);t+=864e5){const d=new Date(t);o.push(key(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate()))}return o};
+const fmt=s=>new Date(utc(s)).toLocaleDateString('es-MX',{day:'numeric',month:'short',timeZone:'UTC'});
+const dbg=m=>{if(Q.has('debug')){const e=$('dbg');e.style.display='block';e.textContent+=m+'\n'}};
+const ft=(u,o={})=>fetch(u,Object.assign({cache:'no-store'},AbortSignal.timeout?{signal:AbortSignal.timeout(9000)}:{},o));
+
+function parseCSV(t){const r=[];let row=[],c='',q=false;
+  for(let i=0;i<t.length;i++){const h=t[i];
+    if(q){if(h=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=h}
+    else if(h=='"')q=true;
+    else if(h==','){row.push(c);c=''}
+    else if(h=='\n'||h=='\r'){if(h=='\r'&&t[i+1]=='\n')i++;row.push(c);r.push(row);row=[];c=''}
+    else c+=h}
+  if(c!==''||row.length){row.push(c);r.push(row)}return r}
+
+function ytId(u){const m=(u||'').match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|shorts\/|live\/|watch\?(?:[^#]*&)?v=))([\w-]{11})/);return m?m[1]:null}
+
+function imgUrl(u){ // Convierte enlaces de Google Drive y optimiza Unsplash
+  if(/drive\.google\.com/.test(u)){const m=u.match(/\/d\/([\w-]+)|[?&]id=([\w-]+)/);if(m)return 'https://drive.google.com/thumbnail?id='+(m[1]||m[2])+'&sz=w1200'}
+  if(/images\.unsplash\.com/.test(u)&&!/[?&]w=/.test(u))return u+(u.includes('?')?'&':'?')+'auto=format&fit=crop&w=900&q=70';
+  return u}
+
+/* ============ GOOGLE SHEETS ============ */
+async function getSheet(){
+  const base='https://docs.google.com/spreadsheets/d/'+SHEET_ID;
+  for(const u of [base+'/gviz/tq?tqx=out:csv&_t=',base+'/export?format=csv&_t=']){
+    try{const r=await ft(u+Date.now());const t=await r.text();
+      if(r.ok&&!/^\s*<(!doctype|html)/i.test(t)){dbg('Sheet OK: '+u.split('/').slice(-1)[0].slice(0,22));return parseCSV(t)}
+      dbg('Sheet respondió pero no es CSV (¿no está compartida como "Cualquier persona con el enlace"?)')}
+    catch(e){dbg('Sheet error: '+e.message)}}
+  return null}
+
+let TEL='523271080200',WAMSG='Hola, me interesa reservar Casa Mecatán',NOMBRE='Casa Mecatán',icalUrl=ICAL_DEFAULT;
+const waLink=m=>'https://wa.me/'+TEL+'?text='+encodeURIComponent(m);
+const okColor=v=>/^#[0-9a-f]{3,8}$/i.test(v);
+
+function aplicar(rows){
+  const G=[],A=[],P=[],L=[];let ical=ICAL_DEFAULT;
+  for(const row of rows){
+    const c=row.map(x=>(x||'').trim()),cat=norm(c[0]);if(!cat)continue;
+    const url=c.find(isUrl);
+    if(cat=='configuracion'){
+      const k=norm(c[1]),v=c.slice(2).find(x=>x!=='')||'';if(!v)continue;
+      if(k=='nombre_casa'){NOMBRE=v;const p=v.split(' ');$('ui-title').innerHTML=esc(p[0])+' <em>'+esc(p.slice(1).join(' '))+'</em>';$('ui-logo').innerHTML=esc(p[0])+' <span>'+esc(p.slice(1).join(' '))+'</span>';document.title=v+' · Tu refugio en Nayarit'}
+      else if(k=='subtitulo')$('ui-subtitle').textContent=v;
+      else if(k=='color_principal'&&okColor(v))document.documentElement.style.setProperty('--forest',v);
+      else if(k=='color_acento'&&okColor(v))document.documentElement.style.setProperty('--gold',v);
+      else if(k.includes('telefono')||k=='whatsapp'){const d=v.replace(/\D/g,'');if(d.length>=10)TEL=d}
+      else if(k.includes('mensaje'))WAMSG=v;
+      else if(k.includes('airbnb')&&isUrl(v)){$('ui-qr').src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data='+encodeURIComponent(v);$('ui-airbnb').href=v}
+    }
+    else if(cat=='foto'&&url){G.push('<div class="media-card" data-img="'+esc(imgUrl(url))+'"><div class="thumb"><img loading="lazy" decoding="async" src="'+esc(imgUrl(url))+'" alt="'+esc(c[1])+'"></div><h3>'+esc(c[1]==url?'':c[1])+'</h3></div>')}
+    else if(cat=='video'&&url){const id=ytId(url);if(id)G.push('<div class="media-card" data-yt="'+id+'"><div class="thumb"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="Video"><span class="play">▶</span></div><h3>'+esc(c[1]==url?'Video':c[1])+'</h3></div>');else dbg('Video: enlace de YouTube no reconocido → '+url)}
+    else if(cat=='amenidad'){let i=c[1]||'✨',t=c[2],d=c[3];if(!t){t=c[1];i='✨'}
+      if(t)A.push('<div class="amenidad-card"><span class="amenidad-icon">'+esc(i)+'</span><h3>'+esc(t)+'</h3><p>'+esc(d)+'</p></div>')}
+    else if(cat=='tarifa'||cat=='precio'){if(!c[1]&&!c[2])continue;const dest=norm(c[4]||'').includes('destacado');
+      P.push('<div class="precio-card'+(dest?' destacado':'')+'">'+(dest?'<div class="precio-badge">Destacado</div>':'')+'<h3>'+esc(c[1])+'</h3><div class="precio-monto">'+esc(c[2])+'</div><p>'+esc(c[3])+'</p></div>')}
+    else if(cat=='guia'||cat=='recomendacion'){const t=c[1];if(!t)continue;const lk=c[2]||'';let btn='';
+      if(isUrl(lk))btn='<a class="guia-btn" target="_blank" rel="noopener" href="'+esc(lk)+'">📍 Cómo llegar</a>';
+      else if(/^[\d\s+()-]{10,}$/.test(lk))btn='<a class="guia-btn" target="_blank" rel="noopener" href="https://wa.me/'+lk.replace(/\D/g,'')+'?text='+encodeURIComponent('Hola, vengo de la página de '+NOMBRE+' y me interesa: '+t)+'">💬 Contactar por WhatsApp</a>';
+      L.push('<div class="guia-card"><div><div class="guia-tag">'+esc(c[4]||'Local')+'</div><h3>'+esc(t)+'</h3><p style="font-size:13px;margin-top:6px">'+esc(c[3])+'</p></div>'+btn+'</div>')}
+    else if((cat=='bloqueo'||cat=='calendario')&&url&&/\.ics/i.test(url))ical=url;
+  }
+  const put=(sec,grid,arr)=>{$(grid).innerHTML=arr.join('');$(sec).hidden=!arr.length};
+  put('galeria','galeria-grid',G);put('amenidades','amenidades-grid',A);put('precios','precios-grid',P);put('guia','guia-grid',L);
+  const w=waLink(WAMSG);$('ui-wa').href=w;$('wa-float').href=w;
+  icalUrl=ical;dbg('Galería:'+G.length+' Amenidades:'+A.length+' Tarifas:'+P.length+' Guía:'+L.length)}
+
+/* ============ AIRBNB iCAL ============ */
+let occ=new Set();
+let vivo=true;
+async function getIcal(){
+  const u=icalUrl+(icalUrl.includes('?')?'&':'?')+'nocache='+Date.now(),e=encodeURIComponent(u);
+  const ps=['https://api.allorigins.win/raw?url='+e,'https://corsproxy.io/?url='+e,'https://api.codetabs.com/v1/proxy?quest='+e]
+    .map(p=>ft(p).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{if(!t.includes('BEGIN:VCALENDAR'))throw 0;return t}));
+  try{const t=await Promise.any(ps);vivo=true;try{localStorage.setItem('ical',t)}catch(x){}dbg('iCal OK (en vivo)');return t}
+  catch(x){vivo=false;dbg('iCal: falló la descarga, se usa la última copia guardada');try{return localStorage.getItem('ical')}catch(y){return null}}}
+
+function leerIcal(t){const s=new Set();
+  for(const ev of t.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g)||[]){
+    const a=ev.match(/DTSTART[^:\r\n]*:(\d{8})/),b=ev.match(/DTEND[^:\r\n]*:(\d{8})/);if(!a)continue;
+    const f=x=>x.slice(0,4)+'-'+x.slice(4,6)+'-'+x.slice(6,8),ini=f(a[1]);
+    let fin=b?f(b[1]):null;if(!fin||utc(fin)<=utc(ini))fin=new Date(utc(ini)+864e5).toISOString().slice(0,10);
+    nights(ini,fin).forEach(n=>s.add(n))}
+  return s}
+
+/* ============ CALENDARIO ============ */
+let off=0,ini=null,fin=null;
+const hoyKey=()=>{const h=new Date();return key(h.getFullYear(),h.getMonth(),h.getDate())};
+function pintar(){
+  const hoy=new Date(),th=hoyKey();let html='';
+  for(let k=0;k<2;k++){
+    const f=new Date(hoy.getFullYear(),hoy.getMonth()+off+k,1),y=f.getFullYear(),m=f.getMonth();
+    html+='<div><div class="cal-month-title">'+f.toLocaleDateString('es-MX',{month:'long',year:'numeric'}).toUpperCase()+'</div><div class="cal-grid">'+['Do','Lu','Ma','Mi','Ju','Vi','Sá'].map(n=>'<div class="cal-day-name">'+n+'</div>').join('')+'<div class="cal-day empty"></div>'.repeat(f.getDay());
+    for(let d=1,n=new Date(y,m+1,0).getDate();d<=n;d++){
+      const s=key(y,m,d);let cl='cal-day';
+      if(occ.has(s)||s<th)cl+=' booked';
+      if(ini&&fin&&s>ini&&s<fin)cl+=' inrange';
+      if(s===ini||s===fin)cl+=' selected';
+      html+='<div class="'+cl+'" data-d="'+s+'">'+d+'</div>'}
+    html+='</div></div>'}
+  $('cal-months').innerHTML=html;
+  const t=$('cal-txt'),b=$('cal-wa');
+  if(ini&&fin){const n=nights(ini,fin).length;t.textContent='Estancia: '+fmt(ini)+' al '+fmt(fin)+' ('+n+' '+(n>1?'noches':'noche')+')';
+    b.href=waLink('Hola, me interesa reservar '+NOMBRE+' del '+ini+' al '+fin+' ('+n+' '+(n>1?'noches':'noche')+'). ¿Tienen disponibilidad?');b.style.display='inline-flex'}
+  else{b.style.display='none';if(ini)t.textContent='Llegada: '+fmt(ini)+'. Ahora elige tu fecha de salida.';else if(!vivo)t.textContent='No pudimos actualizar el calendario ahora; confirma tus fechas por WhatsApp.'}}
+
+$('cal-months').addEventListener('click',e=>{
+  const d=e.target.dataset&&e.target.dataset.d;if(!d||d<hoyKey())return;
+  const t=$('cal-txt');
+  if(!ini||fin){if(occ.has(d)){t.textContent='Esa noche ya está ocupada. Elige otra fecha de llegada.';return}ini=d;fin=null}
+  else if(d<=ini){if(occ.has(d))return;ini=d}
+  else if(nights(ini,d).some(x=>occ.has(x))){t.textContent='Hay noches ocupadas dentro de ese rango. Elige otras fechas.';return}
+  else fin=d;
+  pintar()});
+$('cal-prev').onclick=()=>{if(off>0){off--;pintar()}};
+$('cal-next').onclick=()=>{if(off<18){off++;pintar()}};
+
+/* ============ GALERÍA / LIGHTBOX ============ */
+$('galeria-grid').addEventListener('click',e=>{
+  const c=e.target.closest('.media-card');if(!c)return;
+  if(c.dataset.yt){c.querySelector('.thumb').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+c.dataset.yt+'?autoplay=1&rel=0" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>';c.style.cursor='default'}
+  else if(c.dataset.img){$('lb-img').src=c.dataset.img;$('lightbox').style.display='flex'}});
+const cerrar=()=>{$('lightbox').style.display='none'};
+$('lightbox').onclick=cerrar;
+document.addEventListener('keydown',e=>{if(e.key=='Escape')cerrar()});
+
+/* ============ ARRANQUE Y ACTUALIZACIÓN ============ */
+let ultima=0,cargando=false;
+async function cargar(){
+  if(cargando)return;cargando=true;ultima=Date.now();
+  try{
+    const rows=await getSheet();
+    if(rows)aplicar(rows);else{const w=waLink(WAMSG);$('ui-wa').href=w;$('wa-float').href=w}
+    const t=await getIcal();if(t){occ=leerIcal(t);dbg('Noches bloqueadas: '+[...occ].sort().join(' '))}
+    pintar()}
+  finally{cargando=false}}
+$('ui-wa').href=$('wa-float').href=waLink(WAMSG);
+pintar();cargar();
+setInterval(cargar,300000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-ultima>60000)cargar()});
+</script>
+</body>
+</html>
