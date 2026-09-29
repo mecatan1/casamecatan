@@ -12,9 +12,7 @@
   <style>
     :root {
       --forest: #1a3a2a;
-      --forest2: #24503a;
       --leaf: #3d7a56;
-      --sage: #7aab8a;
       --sand: #f5efe6;
       --sand2: #ede4d6;
       --gold: #c9a44a;
@@ -63,16 +61,10 @@
     .hero-sub { max-width: 600px; font-size: 17px; color: rgba(255,255,255,0.88); margin-bottom: 28px; font-weight: 300; }
     
     .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
-    .badge {
-      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 40px; padding: 7px 16px; font-size: 12px; display: flex; align-items: center; gap: 6px;
-    }
+    .badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 40px; padding: 7px 16px; font-size: 12px; display: flex; align-items: center; gap: 6px; }
 
     .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-outline {
-      border: 1.5px solid rgba(255,255,255,0.6); padding: 10px 22px; border-radius: 30px;
-      font-size: 13px; transition: all 0.3s; color: white;
-    }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.6); padding: 10px 22px; border-radius: 30px; font-size: 13px; transition: all 0.3s; color: white; }
     .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.15); }
 
     /* Secciones Generales */
@@ -87,109 +79,61 @@
     .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
 
     /* Galería Optimizada */
-    .media-card {
-      border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      background: white; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
-    }
+    .media-card { border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); background: white; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s; }
     .media-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
     .media-card img, .media-card iframe { width: 100%; height: 240px; object-fit: cover; border: none; display: block; }
     .media-card h3 { padding: 14px 18px; font-size: 14px; color: var(--forest); font-weight: 500; }
 
     /* Amenidades */
-    .amenidad-card {
-      background: var(--sand); padding: 26px 18px; border-radius: 14px; text-align: center;
-      border: 1px solid rgba(0,0,0,0.04); transition: transform 0.25s;
-    }
+    .amenidad-card { background: var(--sand); padding: 26px 18px; border-radius: 14px; text-align: center; border: 1px solid rgba(0,0,0,0.04); transition: transform 0.25s; }
     .amenidad-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
     .amenidad-icon { font-size: 36px; margin-bottom: 10px; display: block; }
     .amenidad-card h3 { font-size: 15px; color: var(--forest); margin-bottom: 6px; }
     .amenidad-card p { font-size: 13px; color: var(--ink3); }
 
     /* Calendario Airbnb */
-    .cal-wrapper {
-      background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 22px; padding: 32px 24px;
-      box-shadow: 0 10px 35px rgba(26,58,42,0.06); max-width: 860px; margin: 0 auto;
-    }
+    .cal-wrapper { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 22px; padding: 32px 24px; box-shadow: 0 10px 35px rgba(26,58,42,0.06); max-width: 860px; margin: 0 auto; }
     .cal-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
-    .cal-nav-btn {
-      background: var(--sand); border: none; border-radius: 50%; width: 38px; height: 38px;
-      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15px;
-      color: var(--forest); font-weight: 700; transition: background 0.2s;
-    }
+    .cal-nav-btn { background: var(--sand); border: none; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15px; color: var(--forest); font-weight: 700; transition: background 0.2s; }
     .cal-nav-btn:hover { background: var(--gold2); }
     .cal-months { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; }
     .cal-month-title { text-align: center; font-weight: 700; color: var(--forest); margin-bottom: 12px; font-size: 15px; letter-spacing: 0.05em; }
     .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
     .cal-day-name { font-size: 11px; font-weight: 700; color: var(--ink3); padding-bottom: 6px; }
-    .cal-day {
-      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-      font-size: 12px; border-radius: 6px; background: var(--white); cursor: pointer; user-select: none;
-      transition: background 0.15s, color 0.15s;
-    }
+    .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; border-radius: 6px; background: var(--white); cursor: pointer; user-select: none; transition: background 0.15s, color 0.15s; }
     .cal-day.empty { background: transparent; cursor: default; }
     .cal-day.available:hover { background: var(--gold2); color: var(--forest); font-weight: 700; }
-    .cal-day.booked {
-      background: #ffe3e3 !important; color: #b73232 !important; text-decoration: line-through; cursor: not-allowed; opacity: 0.75;
-    }
+    .cal-day.booked { background: #ffe3e3 !important; color: #b73232 !important; text-decoration: line-through; cursor: not-allowed; opacity: 0.75; }
     .cal-day.selected { background: var(--forest) !important; color: white !important; font-weight: 700; }
     .cal-legend { display: flex; gap: 16px; justify-content: center; margin-top: 22px; font-size: 12px; flex-wrap: wrap; }
     .cal-legend span { display: flex; align-items: center; gap: 5px; }
     .cal-dot { width: 10px; height: 10px; border-radius: 3px; }
 
     /* Precios */
-    .precio-card {
-      background: white; border: 2px solid var(--sand2); border-radius: 18px; padding: 36px 26px;
-      text-align: center; position: relative; transition: all 0.3s;
-    }
+    .precio-card { background: white; border: 2px solid var(--sand2); border-radius: 18px; padding: 36px 26px; text-align: center; position: relative; transition: all 0.3s; }
     .precio-card.destacado { border-color: var(--forest); box-shadow: 0 12px 35px rgba(26,58,42,0.09); }
-    .precio-badge {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: var(--forest); font-size: 10px; font-weight: 700;
-      padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
-    }
+    .precio-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--forest); font-size: 10px; font-weight: 700; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em; }
     .precio-monto { font-size: 42px; font-family: var(--serif); color: var(--forest); margin: 12px 0; }
 
     /* Guía Local */
-    .guia-card {
-      background: white; border-radius: 14px; padding: 22px; border: 1px solid rgba(0,0,0,0.08);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
+    .guia-card { background: white; border-radius: 14px; padding: 22px; border: 1px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: space-between; gap: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .guia-tag { font-size: 10px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 3px 10px; border-radius: 20px; width: fit-content; font-weight: 700; }
     .guia-card h3 { font-size: 17px; color: var(--forest); }
-    .guia-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      background: var(--forest); color: white !important; padding: 9px 16px; border-radius: 7px; font-size: 13px; font-weight: 500;
-      transition: background 0.2s;
-    }
+    .guia-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--forest); color: white !important; padding: 9px 16px; border-radius: 7px; font-size: 13px; font-weight: 500; transition: background 0.2s; }
     .guia-btn:hover { background: var(--gold); color: var(--forest) !important; }
 
     /* Módulo Reserva Airbnb & QR */
-    .reserva-box {
-      background: var(--forest); color: white; border-radius: 22px; padding: 45px 24px;
-      text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center;
-    }
-    .qr-container {
-      background: white; padding: 12px; border-radius: 14px; margin: 18px 0 10px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
-    }
+    .reserva-box { background: var(--forest); color: white; border-radius: 22px; padding: 45px 24px; text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center; }
+    .qr-container { background: white; padding: 12px; border-radius: 14px; margin: 18px 0 10px; box-shadow: 0 6px 25px rgba(0,0,0,0.25); }
     .qr-container img { width: 150px; height: 150px; display: block; }
 
     /* Lightbox Modal */
-    #lightbox {
-      display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(10,20,14,0.95); align-items: center; justify-content: center; padding: 16px;
-    }
+    #lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,20,14,0.95); align-items: center; justify-content: center; padding: 16px; }
     #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 10px; object-fit: contain; }
     #lightbox-close { position: absolute; top: 16px; right: 20px; color: white; font-size: 36px; cursor: pointer; }
 
     /* WhatsApp Flotante */
-    .wa-float {
-      position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white;
-      width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-size: 28px; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 99;
-      transition: transform 0.2s;
-    }
+    .wa-float { position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 99; transition: transform 0.2s; }
     .wa-float:hover { transform: scale(1.1); }
 
     @media(max-width: 768px) {
@@ -241,14 +185,10 @@
       <h2 class="section-title">Conoce cada rincón de <em>tu próximo destino</em></h2>
     </div>
     <div class="grid-3" id="galeria-grid">
-      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
-      <div class="media-card" onclick="abrirLightbox('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80')">
+      <!-- Respaldo en caso de que Google Sheets falle -->
+      <div class="media-card">
         <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Alberca Privada">
         <h3>Alberca Privada y Jardín</h3>
-      </div>
-      <div class="media-card" onclick="abrirLightbox('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80')">
-        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Fachada">
-        <h3>Entrada Principal y Terraza</h3>
       </div>
       <div class="media-card">
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
@@ -264,21 +204,10 @@
       <h2 class="section-title">Comodidades <em>incluidas</em></h2>
     </div>
     <div class="grid-4" id="amenidades-grid">
-      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="amenidad-card">
         <span class="amenidad-icon">🏊</span>
         <h3>Alberca Privada</h3>
         <p>Alberca totalmente privada, con agua templada y mantenimiento regular.</p>
-      </div>
-      <div class="amenidad-card">
-        <span class="amenidad-icon">🌿</span>
-        <h3>Entorno Natural</h3>
-        <p>Área verde amplia, árboles frutales y tranquilidad absoluta en Nayarit.</p>
-      </div>
-      <div class="amenidad-card">
-        <span class="amenidad-icon">🥩</span>
-        <h3>Área de Asador</h3>
-        <p>Espacio techado con parrilla para preparar comidas al aire libre.</p>
       </div>
       <div class="amenidad-card">
         <span class="amenidad-icon">📶</span>
@@ -302,11 +231,7 @@
         <span style="font-weight: 700; color: var(--forest); font-size: 13px; text-transform: uppercase;">Navegar Calendario</span>
         <button class="cal-nav-btn" onclick="cambiarMes(1)" title="Mes siguiente">&#8594;</button>
       </div>
-
-      <div class="cal-months" id="cal-months-container">
-        <!-- Renderizado automático -->
-      </div>
-
+      <div class="cal-months" id="cal-months-container"></div>
       <div class="cal-legend">
         <span><div class="cal-dot" style="background: var(--forest);"></div> Seleccionado</span>
         <span><div class="cal-dot" style="background: var(--white); border: 1px solid #ccc;"></div> Disponible</span>
@@ -329,17 +254,10 @@
       <h2 class="section-title">Tarifas <em>claras y transparentes</em></h2>
     </div>
     <div class="grid-3" style="justify-content: center; max-width: 780px; margin: 0 auto;" id="precios-grid">
-      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="precio-card">
         <h3>Entre Semana</h3>
         <div class="precio-monto" id="p-regular">$2,500</div>
         <p>Por noche (Domingo a Jueves)</p>
-      </div>
-      <div class="precio-card destacado">
-        <div class="precio-badge">Fin de Semana</div>
-        <h3>Viernes a Domingo</h3>
-        <div class="precio-monto" id="p-finde">$2,800</div>
-        <p>Por noche (Viernes y Sábado)</p>
       </div>
     </div>
   </section>
@@ -351,20 +269,11 @@
       <h2 class="section-title">Recomendaciones en <em>Mecatán y San Blas</em></h2>
     </div>
     <div class="grid-3" id="guia-grid">
-      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
-      <div class="guia-card">
-        <div>
-          <div class="guia-tag">Aventura</div>
-          <h3>Cascadas de Mecatán</h3>
-          <p style="font-size: 13px; margin-top: 6px;">Hermosas pozas naturales y senderos verdes para nadar y conectar con la naturaleza a unos minutos.</p>
-        </div>
-        <a href="https://maps.google.com/?q=Cascadas+Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
-      </div>
       <div class="guia-card">
         <div>
           <div class="guia-tag">Gastronomía</div>
           <h3>Mariscos en San Blas</h3>
-          <p style="font-size: 13px; margin-top: 6px;">Disfruta del pescado zarandeado tradicional y la cocina costera nayarita en los restaurantes del puerto.</p>
+          <p style="font-size: 13px; margin-top: 6px;">Disfruta del pescado zarandeado tradicional y la cocina costera nayarita.</p>
         </div>
         <a href="https://maps.google.com/?q=San+Blas+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
       </div>
@@ -380,8 +289,7 @@
       </p>
 
       <div class="qr-container">
-        <!-- Código QR hacia tu anuncio de Airbnb -->
-        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
+        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
       </div>
       <p style="font-size: 11px; color: var(--gold2); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px;">
         Escanea con la cámara de tu celular para abrir en Airbnb
@@ -407,68 +315,35 @@
   <!-- WhatsApp Flotante -->
   <a id="wa-float" href="https://wa.me/523271080200?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="wa-float" title="WhatsApp">💬</a>
 
-  <!-- SCRIPT DE SINCRONIZACIÓN BLINDADO -->
+  <!-- SCRIPT SUPER BLINDADO -->
   <script>
     const SHEET_ID = '14mE2RHs3U3L8a5BgOPfOOvJAPF3k7Ov5h7ANDQMeXQA';
-
     let fechasOcupadas = new Set();
     let fechaInicioSel = null;
     let fechaFinSel = null;
     let telWhatsappActual = '523271080200';
     let mesOffsetActual = 0;
 
-    function abrirLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').style.display = 'flex';
-    }
-    function cerrarLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
+    function abrirLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').style.display = 'flex'; }
+    function cerrarLightbox() { document.getElementById('lightbox').style.display = 'none'; }
 
-    function cambiarMes(delta) {
-      if (mesOffsetActual + delta >= 0) {
-        mesOffsetActual += delta;
-        renderizarCalendario();
-      }
-    }
+    function cambiarMes(delta) { if (mesOffsetActual + delta >= 0) { mesOffsetActual += delta; renderizarCalendario(); } }
 
-    // Extractor de CSV blindado
-    function parseCSV(str) {
-      const arr = [];
-      let quote = false, row = 0, col = 0;
-      for (let c = 0; c < str.length; c++) {
-        let cc = str[c], nc = str[c+1];
-        arr[row] = arr[row] || [];
-        arr[row][col] = arr[row][col] || '';
-        if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
-        if (cc == '"') { quote = !quote; continue; }
-        if (cc == ',' && !quote) { ++col; continue; }
-        if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
-        if (cc == '\n' && !quote) { ++row; col = 0; continue; }
-        if (cc == '\r' && !quote) { ++row; col = 0; continue; }
-        arr[row][col] += cc;
-      }
-      return arr;
-    }
-
-    // Extractor de YouTube INFALIBLE (soporta watch, youtu.be, embed, shorts, etc.)
+    // Motor Inteligente de YouTube (Acepta cualquier formato)
     function getYoutubeID(url) {
       if (!url) return null;
-      const pattern = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
-      const match = url.match(pattern);
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
       return match ? match[1] : null;
     }
 
-    // Cargador de Airbnb a prueba de fallos
+    // Cargador del Calendario de Airbnb Independiente (No se rompe aunque falle Sheets)
     async function cargarCalendarioAirbnb(icalUrl) {
-      if (!icalUrl || !icalUrl.startsWith('http')) {
-        renderizarCalendario();
-        return;
-      }
+      if (!icalUrl || !icalUrl.includes('http')) { renderizarCalendario(); return; }
+      
+      const bypassUrl = icalUrl + (icalUrl.includes('?') ? '&' : '?') + 'nocache=' + Date.now();
       const proxies = [
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(icalUrl)}&_t=${Date.now()}`,
-        `https://corsproxy.io/?url=${encodeURIComponent(icalUrl)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(icalUrl)}`
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(bypassUrl)}`,
+        `https://corsproxy.io/?url=${encodeURIComponent(bypassUrl)}`
       ];
 
       let icalText = null;
@@ -477,42 +352,32 @@
           const res = await fetch(proxy, { cache: "no-store" });
           if (res.ok) {
             const text = await res.text();
-            if (text && text.includes('BEGIN:VCALENDAR')) {
-              icalText = text;
-              break;
-            }
+            if (text && text.includes('BEGIN:VCALENDAR')) { icalText = text; break; }
           }
         } catch (e) {}
       }
 
       if (icalText) {
-        // Lee el evento sin importar si DTSTART viene antes o después de DTEND
         const vevents = icalText.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
         for (let vevent of vevents) {
           const mStart = vevent.match(/DTSTART(?:;[^:]*)?:(\d{8})/);
           const mEnd = vevent.match(/DTEND(?:;[^:]*)?:(\d{8})/);
           if (mStart && mEnd) {
-            bloquearRangoFechas(mStart[1], mEnd[1]);
+            const y1 = parseInt(mStart[1].substr(0,4)), m1 = parseInt(mStart[1].substr(4,2)) - 1, d1 = parseInt(mStart[1].substr(6,2));
+            const y2 = parseInt(mEnd[1].substr(0,4)), m2 = parseInt(mEnd[1].substr(4,2)) - 1, d2 = parseInt(mEnd[1].substr(6,2));
+            let cur = new Date(Date.UTC(y1, m1, d1));
+            const fin = new Date(Date.UTC(y2, m2, d2));
+            while (cur < fin) {
+              const y = cur.getUTCFullYear();
+              const m = String(cur.getUTCMonth() + 1).padStart(2, '0');
+              const d = String(cur.getUTCDate()).padStart(2, '0');
+              fechasOcupadas.add(`${y}-${m}-${d}`);
+              cur.setUTCDate(cur.getUTCDate() + 1);
+            }
           }
         }
       }
       renderizarCalendario();
-    }
-
-    // Convertidor de fechas neutral a la zona horaria
-    function bloquearRangoFechas(startStr, endStr) {
-      const y1 = parseInt(startStr.substr(0,4)), m1 = parseInt(startStr.substr(4,2)) - 1, d1 = parseInt(startStr.substr(6,2));
-      const y2 = parseInt(endStr.substr(0,4)), m2 = parseInt(endStr.substr(4,2)) - 1, d2 = parseInt(endStr.substr(6,2));
-
-      let cur = new Date(Date.UTC(y1, m1, d1));
-      const fin = new Date(Date.UTC(y2, m2, d2));
-      while (cur < fin) {
-        const y = cur.getUTCFullYear();
-        const m = String(cur.getUTCMonth() + 1).padStart(2, '0');
-        const d = String(cur.getUTCDate()).padStart(2, '0');
-        fechasOcupadas.add(`${y}-${m}-${d}`);
-        cur.setUTCDate(cur.getUTCDate() + 1);
-      }
     }
 
     function renderizarCalendario() {
@@ -527,33 +392,24 @@
         const mes = mesFecha.getMonth();
 
         const nombreMes = mesFecha.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' });
-        const primerDiaSemana = new Date(anio, mes, 1).getDay(); // 0 dom
+        const primerDiaSemana = new Date(anio, mes, 1).getDay(); 
         const totalDias = new Date(anio, mes + 1, 0).getDate();
 
-        let gridHTML = `
-          <div>
-            <div class="cal-month-title">${nombreMes.toUpperCase()}</div>
-            <div class="cal-grid">
+        let gridHTML = `<div><div class="cal-month-title">${nombreMes.toUpperCase()}</div><div class="cal-grid">
               <div class="cal-day-name">Do</div><div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div>
-              <div class="cal-day-name">Mi</div><div class="cal-day-name">Ju</div><div class="cal-day-name">Vi</div><div class="cal-day-name">Sá</div>
-        `;
+              <div class="cal-day-name">Mi</div><div class="cal-day-name">Ju</div><div class="cal-day-name">Vi</div><div class="cal-day-name">Sá</div>`;
 
-        for (let i = 0; i < primerDiaSemana; i++) {
-          gridHTML += `<div class="cal-day empty"></div>`;
-        }
+        for (let i = 0; i < primerDiaSemana; i++) gridHTML += `<div class="cal-day empty"></div>`;
 
         for (let d = 1; d <= totalDias; d++) {
           const dateStr = `${anio}-${String(mes + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
           const dateObj = new Date(anio, mes, d);
           const esPasado = dateObj < new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
           const estaOcupado = fechasOcupadas.has(dateStr) || esPasado;
-
           let clase = estaOcupado ? 'booked' : 'available';
           if (fechaInicioSel === dateStr || fechaFinSel === dateStr) clase += ' selected';
-
-          gridHTML += `<div class="cal-day ${clase}" data-date="${dateStr}" onclick="seleccionarFecha('${dateStr}', ${estaOcupado})">${d}</div>`;
+          gridHTML += `<div class="cal-day ${clase}" onclick="seleccionarFecha('${dateStr}', ${estaOcupado})">${d}</div>`;
         }
-
         gridHTML += `</div></div>`;
         cont.innerHTML += gridHTML;
       }
@@ -562,8 +418,7 @@
     function seleccionarFecha(dateStr, estaOcupado) {
       if (estaOcupado) return;
       if (!fechaInicioSel || (fechaInicioSel && fechaFinSel)) {
-        fechaInicioSel = dateStr;
-        fechaFinSel = null;
+        fechaInicioSel = dateStr; fechaFinSel = null;
         document.getElementById('cal-fechas-txt').innerText = `Llegada: ${fechaInicioSel}. Ahora selecciona la fecha de salida.`;
         document.getElementById('cal-wa-btn').style.display = 'none';
       } else {
@@ -573,8 +428,8 @@
         } else {
           fechaFinSel = dateStr;
           const noches = Math.round((new Date(fechaFinSel) - new Date(fechaInicioSel))/(1000*60*60*24));
-          document.getElementById('cal-fechas-txt').innerText = `Estancia seleccionada: ${fechaInicioSel} al ${fechaFinSel} (${noches} noches).`;
-          const msg = `Hola, me interesa reservar Casa Mecatán del ${fechaInicioSel} al ${fechaFinSel} (${noches} noches). ¿Tienen disponibilidad?`;
+          document.getElementById('cal-fechas-txt').innerText = `Estancia: ${fechaInicioSel} al ${fechaFinSel} (${noches} noches).`;
+          const msg = `Hola, me interesa reservar Casa Mecatán del ${fechaInicioSel} al ${fechaFinSel} (${noches} noches).`;
           document.getElementById('cal-wa-btn').href = `https://wa.me/${telWhatsappActual}?text=${encodeURIComponent(msg)}`;
           document.getElementById('cal-wa-btn').style.display = 'inline-flex';
         }
@@ -582,125 +437,118 @@
       renderizarCalendario();
     }
 
-    // Sincronización Blindada con Google Sheets
+    // Motor Avanzado JSON (A prueba de errores de columnas en Excel)
     async function sincronizarConGoogleSheets() {
-      const endpoints = [
-        `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&_t=${Date.now()}`,
-        `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&id=${SHEET_ID}&gid=0&_t=${Date.now()}`
-      ];
+      let icalUrlFinal = 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
 
-      let csvText = null;
-      for (let ep of endpoints) {
-        try {
-          const res = await fetch(ep, { cache: "no-store" });
-          if (res.ok) {
-            const txt = await res.text();
-            if (txt && txt.includes('Configuracion')) {
-              csvText = txt;
-              break;
+      try {
+        const urlJSON = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&_t=${Date.now()}`;
+        const response = await fetch(urlJSON, { cache: "no-store" });
+        const text = await response.text();
+        const jsonMatch = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/);
+        
+        if (jsonMatch && jsonMatch[1]) {
+          const data = JSON.parse(jsonMatch[1]);
+          const galeria = [], amenidades = [], precios = [], guia = [];
+          let waMsg = 'Hola, me interesa reservar Casa Mecatán';
+
+          data.table.rows.forEach(row => {
+            if(!row || !row.c || !row.c[0] || !row.c[0].v) return;
+            const cells = row.c.map(cell => cell && cell.v != null ? String(cell.v).trim() : '');
+            const cat = cells[0].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const findUrl = () => cells.find(c => c.startsWith('http'));
+
+            if (cat === 'configuracion') {
+              const key = cells[1] ? cells[1].toLowerCase() : '';
+              let realVal = '';
+              for(let j=2; j<cells.length; j++) { if(cells[j] !== '') { realVal = cells[j]; break; } }
+              
+              if(key === 'nombre_casa') {
+                document.getElementById('ui-title').innerHTML = `${realVal.split(' ')[0]} <em>${realVal.split(' ').slice(1).join(' ')}</em>`;
+                document.getElementById('ui-logo').innerHTML = `${realVal.split(' ')[0]} <span>${realVal.split(' ').slice(1).join(' ')}</span>`;
+                document.title = realVal + " · Tu refugio en Nayarit";
+              }
+              if(key === 'subtitulo') document.getElementById('ui-subtitle').innerText = realVal;
+              if(key.includes('color_principal')) document.documentElement.style.setProperty('--forest', realVal);
+              if(key.includes('color_acento')) document.documentElement.style.setProperty('--gold', realVal);
+              if(key.includes('whatsapp') || key.includes('whats')) {
+                if (realVal.replace(/\D/g,'').length >= 10) telWhatsappActual = realVal.replace(/\D/g,'');
+                else waMsg = realVal;
+              }
+              if(key.includes('airbnb') && realVal.startsWith('http')) {
+                document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(realVal)}`;
+                document.getElementById('ui-btn-airbnb').href = realVal;
+              }
             }
-          }
-        } catch (e) {}
-      }
 
-      let icalEncontrado = 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
-
-      if (csvText) {
-        const data = parseCSV(csvText);
-        const galeria = [];
-        const amenidades = [];
-        const precios = [];
-        const guia = [];
-        let waTel = '523271080200';
-        let waMsg = 'Hola, me interesa reservar Casa Mecatán';
-
-        for (let i = 1; i < data.length; i++) {
-          // Filtro anti-errores (quita acentos, espacios ocultos y pone minúsculas)
-          let cat = data[i][0] ? data[i][0].normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : '';
-          let colB = data[i][1] ? data[i][1].trim() : '';
-          let colC = data[i][2] ? data[i][2].trim() : '';
-          let colD = data[i][3] ? data[i][3].trim() : '';
-          let colE = data[i][4] ? data[i][4].trim() : '';
-
-          if (!cat) continue;
-
-          if (cat === 'configuracion') {
-            const key = colB.toLowerCase();
-            if (key === 'nombre_casa') {
-              document.getElementById('ui-title').innerHTML = `${colC.split(' ')[0]} <em>${colC.split(' ').slice(1).join(' ')}</em>`;
-              document.getElementById('ui-logo').innerHTML = `${colC.split(' ')[0]} <span>${colC.split(' ').slice(1).join(' ')}</span>`;
-              document.title = colC + " · Tu refugio en Nayarit";
+            if (cat === 'foto' || cat === 'video') {
+              const mediaUrl = findUrl();
+              let title = cells.find(c => c !== mediaUrl && c !== cells[0] && c !== '') || '';
+              if (cat === 'video' && mediaUrl) {
+                const ytId = getYoutubeID(mediaUrl);
+                if (ytId) galeria.push(`<div class="media-card"><iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe><h3>${title}</h3></div>`);
+              } else if (cat === 'foto' && mediaUrl) {
+                galeria.push(`<div class="media-card" onclick="abrirLightbox('${mediaUrl}')"><img src="${mediaUrl}" alt="${title}"><h3>${title}</h3></div>`);
+              }
             }
-            if (key === 'subtitulo') document.getElementById('ui-subtitle').innerText = colC;
-            if (key === 'color_principal') document.documentElement.style.setProperty('--forest', colC);
-            if (key === 'color_acento') document.documentElement.style.setProperty('--gold', colC);
-            if (key === 'telefono_whatsapp' || key === 'telefono_whats') { waTel = colC; telWhatsappActual = colC; }
-            if (key === 'mensaje_whatsapp' || key === 'mensaje_whats') waMsg = colC;
-            if (key === 'url_airbnb' && colC.startsWith('http')) {
-              document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(colC)}`;
-              document.getElementById('ui-btn-airbnb').href = colC;
+
+            if (cat === 'amenidad') {
+              const vals = cells.slice(1).filter(c => c !== '');
+              let icon = '✨', title = '', desc = '';
+              if(vals.length >= 3) { icon = vals[0]; title = vals[1]; desc = vals[2]; }
+              else if(vals.length === 2) { title = vals[0]; desc = vals[1]; }
+              else if(vals.length === 1) { title = vals[0]; }
+              if(title) amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${icon}</span><h3>${title}</h3><p>${desc}</p></div>`);
             }
-          }
-          
-          if (cat === 'foto' || cat === 'video') {
-            const ytId = getYoutubeID(colC) || getYoutubeID(colB);
-            let media = '';
-            
-            if (cat === 'video' && ytId) {
-              media = `<iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe>`;
-            } else {
-              let urlFoto = colC.startsWith('http') ? colC : colB;
-              let tituloFoto = colC.startsWith('http') ? colB : colC;
-              media = `<img src="${urlFoto}" alt="${tituloFoto}">`;
+
+            if (cat === 'tarifa' || cat === 'precio') {
+              const vals = cells.slice(1).filter(c => c !== '');
+              let title = 'Tarifa', price = '$0', desc = '', extra = '';
+              const pIdx = vals.findIndex(c => c.includes('$') || /^\d/.test(c));
+              if(pIdx !== -1) { price = vals[pIdx]; vals.splice(pIdx, 1); }
+              const dIdx = vals.findIndex(c => c.toLowerCase().includes('destacado'));
+              if(dIdx !== -1) { extra = 'Destacado'; vals.splice(dIdx, 1); }
+              if(vals.length > 0) title = vals[0];
+              if(vals.length > 1) desc = vals[1];
+              
+              const destClass = extra ? 'destacado' : '';
+              const badge = extra ? `<div class="precio-badge">Destacado</div>` : '';
+              precios.push(`<div class="precio-card ${destClass}">${badge}<h3>${title}</h3><div class="precio-monto">${price}</div><p>${desc}</p></div>`);
             }
-            const clickAttr = cat === 'foto' ? `onclick="abrirLightbox('${colC.startsWith('http') ? colC : colB}')"` : '';
-            galeria.push(`<div class="media-card" ${clickAttr}>${media}<h3>${colB}</h3></div>`);
-          }
-          
-          if (cat === 'amenidad') {
-            amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${colB}</span><h3>${colC}</h3><p>${colD}</p></div>`);
-          }
-          
-          if (cat === 'tarifa' || cat === 'precio') {
-            const dest = colE.toLowerCase() === 'destacado' ? 'destacado' : '';
-            const badge = colE ? `<div class="precio-badge">${colE}</div>` : '';
-            precios.push(`<div class="precio-card ${dest}">${badge}<h3>${colB}</h3><div class="precio-monto">${colC}</div><p>${colD}</p></div>`);
-          }
-          
-          if (cat === 'guia' || cat === 'recomendacion') {
-            guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:13px;margin-top:6px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
-          }
-          
-          if (cat === 'bloqueo' || cat === 'calendario') {
-            if (colB.includes('.ics') || colC.includes('.ics')) {
-              icalEncontrado = colB.includes('.ics') ? colB : colC;
-            } else if (colB) {
-              const start = colB.replace(/-/g, '');
-              const end = colC ? colC.replace(/-/g, '') : start;
-              if (start.length >= 8) bloquearRangoFechas(start, end);
+
+            if (cat === 'guia' || cat === 'recomendacion') {
+              const gUrl = findUrl();
+              const vals = cells.slice(1).filter(c => c !== '' && c !== gUrl);
+              let title = vals[0] || ''; let desc = vals[1] || ''; let tag = vals[2] || 'Local';
+              if(title) guia.push(`<div class="guia-card"><div><div class="guia-tag">${tag}</div><h3>${title}</h3><p style="font-size:13px;margin-top:6px;">${desc}</p></div><a href="${gUrl || '#'}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
             }
-          }
+
+            if (cat === 'bloqueo' || cat === 'calendario') {
+              const bUrl = findUrl();
+              if (bUrl && bUrl.includes('.ics')) { icalUrlFinal = bUrl; }
+            }
+          });
+
+          // Inyectar HTML
+          if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
+          if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
+          if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
+          if (guia.length > 0) document.getElementById('guia-grid').innerHTML = guia.join('');
+
+          const linkWA = `https://wa.me/${telWhatsappActual}?text=${encodeURIComponent(waMsg)}`;
+          document.getElementById('ui-btn-wa').href = linkWA;
+          document.getElementById('wa-float').href = linkWA;
         }
-
-        // Si se encontraron datos reales, sobrescribe el HTML de respaldo. Si no, mantiene los datos por defecto.
-        if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
-        if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
-        if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
-        if (guia.length > 0) document.getElementById('guia-grid').innerHTML = guia.join('');
-
-        const finalWA = `https://wa.me/${waTel}?text=${encodeURIComponent(waMsg)}`;
-        document.getElementById('ui-btn-wa').href = finalWA;
-        document.getElementById('wa-float').href = finalWA;
+      } catch (err) {
+        console.error("Modo Respaldo de Emergencia Activado.");
       }
-
-      // IMPORTANTE: El calendario SIEMPRE se ejecuta, sin importar si el Excel cargó o no.
-      await cargarCalendarioAirbnb(icalEncontrado);
+      
+      // Llamar al calendario SIEMPRE (incluso si falla Sheets)
+      await cargarCalendarioAirbnb(icalUrlFinal);
     }
 
-    // Iniciador
-    window.addEventListener('DOMContentLoaded', () => {
-      sincronizarConGoogleSheets();
-    });
+    // Arranque
+    window.addEventListener('DOMContentLoaded', sincronizarConGoogleSheets);
   </script>
 </body>
 </html>
