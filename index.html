@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="meta-title">Casa Mecatán | Renta Vacacional</title>
+  <title id="meta-title">Casa Mecatán · Tu refugio en Nayarit</title>
+  <meta name="description" content="Casa familiar con alberca privada en Mecatán, Nayarit. Reserva directamente por WhatsApp o Airbnb.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,300&family=DM+Sans:wght@300;400;500;700&display=swap">
   
   <style>
     :root {
       --forest: #1a3a2a;
+      --forest2: #24503a;
+      --leaf: #3d7a56;
+      --sage: #7aab8a;
+      --sand: #f5efe6;
+      --sand2: #ede4d6;
       --gold: #c9a44a;
       --gold2: #e8c46a;
-      --sand: #f5efe6;
-      --white: #fdfaf6;
       --ink: #1c2a22;
+      --ink2: #3a4e42;
+      --ink3: #6a7e70;
+      --white: #fdfaf6;
       --serif: 'Fraunces', Georgia, serif;
       --body: 'DM Sans', sans-serif;
     }
@@ -23,110 +30,128 @@
     body { font-family: var(--body); background: var(--white); color: var(--ink); line-height: 1.6; }
     a { text-decoration: none; color: inherit; }
 
-    /* Navegación */
+    /* Nav */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 32px; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(26,58,42,0.98); color: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 16px 36px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(26,58,42,0.96); backdrop-filter: blur(8px); color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
-    .nav-logo { font-family: var(--serif); font-size: 24px; color: var(--white); }
+    .nav-logo { font-family: var(--serif); font-size: 24px; color: var(--white); font-weight: 300; }
     .nav-logo span { color: var(--gold2); font-style: italic; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { font-size: 14px; text-transform: uppercase; letter-spacing: .05em; transition: color 0.3s; }
+    .nav-links a { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; transition: color 0.2s; color: rgba(255,255,255,0.85); }
     .nav-links a:hover { color: var(--gold2); }
     .btn-reservar {
       background: var(--gold); color: var(--forest) !important; padding: 10px 24px;
-      border-radius: 30px; font-weight: 700; transition: transform 0.3s, background 0.3s;
+      border-radius: 30px; font-weight: 700; transition: transform 0.2s, background 0.2s;
     }
     .btn-reservar:hover { background: var(--gold2); transform: translateY(-2px); }
 
-    /* Hero Section */
+    /* Hero */
     #hero {
-      min-height: 85vh; display: flex; flex-direction: column; justify-content: center;
-      align-items: center; text-align: center; background: var(--forest); color: white;
-      padding: 140px 24px 80px; position: relative;
+      min-height: 90vh; display: flex; flex-direction: column; justify-content: center;
+      align-items: center; text-align: center; background: linear-gradient(180deg, rgba(26,58,42,0.8) 0%, rgba(26,58,42,0.95) 100%), var(--forest);
+      color: white; padding: 140px 24px 80px; position: relative;
     }
-    .hero-title { font-family: var(--serif); font-size: clamp(45px, 8vw, 80px); line-height: 1.1; margin-bottom: 20px; }
-    .hero-sub { max-width: 600px; font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 40px; }
+    .hero-pretitle { color: var(--gold2); text-transform: uppercase; letter-spacing: .3em; font-size: 12px; margin-bottom: 16px; font-weight: 500; }
+    .hero-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 85px); line-height: 1.1; margin-bottom: 20px; font-weight: 300; }
+    .hero-title em { font-style: italic; color: var(--gold2); }
+    .hero-sub { max-width: 650px; font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 30px; font-weight: 300; }
     
-    /* QR Box */
-    .qr-box {
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-      padding: 20px; border-radius: 16px; backdrop-filter: blur(10px);
-      display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 40px;
+    .hero-badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .badge {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 40px; padding: 8px 18px; font-size: 13px; display: flex; align-items: center; gap: 8px;
     }
-    .qr-box img { width: 120px; height: 120px; border-radius: 8px; background: white; padding: 4px; }
-    .qr-box span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold2); }
 
-    /* Secciones Generales */
-    section { padding: 90px 24px; max-width: 1200px; margin: 0 auto; }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.5); padding: 10px 24px; border-radius: 30px;
+      font-size: 14px; transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* Secciones */
+    section { padding: 85px 24px; max-width: 1150px; margin: 0 auto; }
     .section-header { text-align: center; margin-bottom: 50px; }
     .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block; }
-    .section-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 48px); color: var(--forest); }
+    .section-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 46px); color: var(--forest); font-weight: 300; }
+    .section-title em { font-style: italic; color: var(--leaf); }
 
-    /* Grids Dinámicos */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    /* Grids */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
 
-    /* Tarjetas de Fotos/Videos */
-    .media-card { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: white; transition: transform 0.3s; }
-    .media-card:hover { transform: translateY(-5px); }
+    /* Galería */
+    .media-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.06); background: white; }
     .media-card img, .media-card iframe { width: 100%; height: 260px; object-fit: cover; border: none; display: block; }
-    .media-card h3 { padding: 16px 20px; font-size: 16px; color: var(--forest); }
+    .media-card h3 { padding: 16px 20px; font-size: 15px; color: var(--forest); font-weight: 500; }
 
-    /* Tarjetas de Amenidades */
+    /* Amenidades */
     .amenidad-card {
-      background: var(--sand); padding: 30px 20px; border-radius: 16px; text-align: center;
-      border: 1px solid rgba(0,0,0,0.03); transition: transform 0.3s;
+      background: var(--sand); padding: 28px 20px; border-radius: 16px; text-align: center;
+      border: 1px solid rgba(0,0,0,0.04); transition: transform 0.2s;
     }
-    .amenidad-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .amenidad-icon { font-size: 42px; margin-bottom: 16px; display: block; }
-    .amenidad-card h3 { font-size: 16px; color: var(--forest); margin-bottom: 8px; }
-    .amenidad-card p { font-size: 14px; color: #555; }
+    .amenidad-card:hover { transform: translateY(-4px); }
+    .amenidad-icon { font-size: 38px; margin-bottom: 12px; display: block; }
+    .amenidad-card h3 { font-size: 16px; color: var(--forest); margin-bottom: 6px; }
+    .amenidad-card p { font-size: 13px; color: var(--ink3); }
 
-    /* Tarjetas de Precios */
+    /* Precios */
     .precio-card {
-      background: white; border: 2px solid var(--sand); border-radius: 20px; padding: 40px 30px;
+      background: white; border: 2px solid var(--sand2); border-radius: 20px; padding: 40px 30px;
       text-align: center; position: relative; transition: all 0.3s;
     }
-    .precio-card.destacado { border-color: var(--forest); box-shadow: 0 15px 40px rgba(26,58,42,0.1); }
+    .precio-card.destacado { border-color: var(--forest); box-shadow: 0 15px 40px rgba(26,58,42,0.08); }
     .precio-badge {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: var(--forest); font-size: 11px; font-weight: 700;
-      padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 4px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
     }
-    .precio-monto { font-size: 48px; font-family: var(--serif); color: var(--forest); margin: 16px 0; }
+    .precio-monto { font-size: 46px; font-family: var(--serif); color: var(--forest); margin: 14px 0; }
 
-    /* Tarjetas de Guía Local */
+    /* Guía Local */
     .guia-card {
-      background: white; border-radius: 16px; padding: 24px; border: 1px solid rgba(0,0,0,0.06);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+      background: white; border-radius: 16px; padding: 24px; border: 1px solid rgba(0,0,0,0.08);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
-    .guia-tag { font-size: 11px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 6px 12px; border-radius: 20px; width: fit-content; font-weight: 700; }
+    .guia-tag { font-size: 11px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 4px 12px; border-radius: 20px; width: fit-content; font-weight: 700; }
     .guia-card h3 { font-size: 18px; color: var(--forest); }
     .guia-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--forest); color: white !important; padding: 10px 20px; border-radius: 8px; font-size: 14px; transition: background 0.3s;
+      background: var(--forest); color: white !important; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 500;
     }
     .guia-btn:hover { background: var(--gold); color: var(--forest) !important; }
 
-    /* WhatsApp */
-    .wa-float {
-      position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
-      width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-size: 32px; box-shadow: 0 8px 25px rgba(37,211,102,0.4); z-index: 999; transition: transform 0.3s;
+    /* Airbnb & Reserva Box */
+    .reserva-box {
+      background: var(--forest); color: white; border-radius: 24px; padding: 50px 30px;
+      text-align: center; margin-top: 40px; display: flex; flex-direction: column; align-items: center;
     }
-    .wa-float:hover { transform: scale(1.1); }
+    .qr-container {
+      background: white; padding: 14px; border-radius: 14px; margin: 24px 0 16px; display: inline-block;
+    }
+    .qr-container img { width: 140px; height: 140px; display: block; }
+
+    /* WhatsApp Flotante */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; background: #25D366; color: white;
+      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 30px; box-shadow: 0 6px 25px rgba(37,211,102,0.4); z-index: 999;
+    }
 
     @media(max-width: 768px) {
       .nav-links { display: none; }
-      #hero { padding-top: 120px; }
+      nav { padding: 14px 20px; }
+      #hero { padding-top: 110px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
+  <!-- Navegación -->
   <nav>
     <div class="nav-logo" id="ui-logo">Casa <span>Mecatán</span></div>
     <div class="nav-links">
@@ -134,67 +159,163 @@
       <a href="#amenidades">Amenidades</a>
       <a href="#precios">Tarifas</a>
       <a href="#guia">Guía Local</a>
-      <a href="#" id="ui-nav-wa" class="btn-reservar" target="_blank">Contactar</a>
+      <a href="#reserva" class="btn-reservar">Reservar</a>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero Section (Precargada) -->
   <header id="hero">
-    <h1 class="hero-title" id="ui-title">Cargando...</h1>
-    <p class="hero-sub" id="ui-subtitle">Sincronizando con tu base de datos en tiempo real.</p>
+    <p class="hero-pretitle">Mecatán · Nayarit · México</p>
+    <h1 class="hero-title" id="ui-title">Casa <em>Mecatán</em></h1>
+    <p class="hero-sub" id="ui-subtitle">Tu refugio privado con alberca en el corazón de Nayarit. Naturaleza, paz y los mejores momentos en familia.</p>
     
-    <div class="qr-box" id="ui-qr-box" style="display: none;">
-      <span id="ui-qr-text">Reserva en Airbnb</span>
-      <img id="ui-qr-img" src="" alt="QR Airbnb">
+    <div class="hero-badges">
+      <div class="badge"><span>🏊</span> Alberca privada</div>
+      <div class="badge"><span>🌿</span> Entorno natural</div>
+      <div class="badge"><span>👨‍👩‍👧‍👦</span> Ideal familias</div>
+      <div class="badge"><span>⭐</span> Superhost Airbnb</div>
     </div>
 
-    <a href="#galeria" class="btn-reservar" style="padding: 16px 40px; font-size: 16px;">Explorar Casa</a>
+    <div class="hero-ctas">
+      <a href="#reserva" class="btn-reservar" style="padding: 14px 34px;">Reservar Directo</a>
+      <a href="#galeria" class="btn-outline">Ver Instalaciones</a>
+    </div>
   </header>
 
-  <!-- Galería -->
+  <!-- Galería Multimedia (Fotos y Videos Precargados) -->
   <section id="galeria">
     <div class="section-header">
-      <span class="section-label">Recorrido</span>
-      <h2 class="section-title">Nuestras Instalaciones</h2>
+      <span class="section-label">Galería</span>
+      <h2 class="section-title">Conoce tu <em>próximo destino</em></h2>
     </div>
-    <div class="grid-3" id="galeria-grid"></div>
+    <div class="grid-3" id="galeria-grid">
+      <div class="media-card">
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Alberca Privada">
+        <h3>Alberca Privada y Jardín</h3>
+      </div>
+      <div class="media-card">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Fachada">
+        <h3>Entrada Principal y Terraza</h3>
+      </div>
+      <div class="media-card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <h3>Video Recorrido por la Casa</h3>
+      </div>
+    </div>
   </section>
 
-  <!-- Amenidades -->
+  <!-- Amenidades (Precargadas) -->
   <section id="amenidades">
     <div class="section-header">
-      <span class="section-label">Comodidades</span>
-      <h2 class="section-title">Lo que ofrece este alojamiento</h2>
+      <span class="section-label">Servicios</span>
+      <h2 class="section-title">Comodidades <em>incluidas</em></h2>
     </div>
-    <div class="grid-4" id="amenidades-grid"></div>
+    <div class="grid-4" id="amenidades-grid">
+      <div class="amenidad-card">
+        <span class="amenidad-icon">🏊</span>
+        <h3>Alberca Privada</h3>
+        <p>Alberca limpia y con mantenimiento químico constante.</p>
+      </div>
+      <div class="amenidad-card">
+        <span class="amenidad-icon">🌿</span>
+        <h3>Amplio Jardín</h3>
+        <p>Área verde privada rodeada de vegetación natural.</p>
+      </div>
+      <div class="amenidad-card">
+        <span class="amenidad-icon">🥩</span>
+        <h3>Área de Asador</h3>
+        <p>Espacio techado ideal para parrilladas familiares.</p>
+      </div>
+      <div class="amenidad-card">
+        <span class="amenidad-icon">📶</span>
+        <h3>Internet WiFi</h3>
+        <p>Conexión estable en toda la propiedad.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Precios -->
+  <!-- Tarifas (Precargadas) -->
   <section id="precios" style="background: var(--sand);">
     <div class="section-header">
-      <span class="section-label">Tarifas</span>
-      <h2 class="section-title">Precios Transparentes</h2>
+      <span class="section-label">Precios</span>
+      <h2 class="section-title">Tarifas <em>claras y justas</em></h2>
     </div>
-    <div class="grid-3" style="justify-content: center;" id="precios-grid"></div>
+    <div class="grid-3" style="justify-content: center; max-width: 800px; margin: 0 auto;" id="precios-grid">
+      <div class="precio-card">
+        <h3>Entre Semana</h3>
+        <div class="precio-monto" id="p-regular">$2,000</div>
+        <p>Por noche (Domingo a Jueves)</p>
+      </div>
+      <div class="precio-card destacado">
+        <div class="precio-badge">Más Popular</div>
+        <h3>Fin de Semana</h3>
+        <div class="precio-monto" id="p-finde">$2,800</div>
+        <p>Por noche (Viernes y Sábado)</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Guía Local -->
+  <!-- Guía Local / Lugares Recomendados (Precargados con Enlaces a Maps) -->
   <section id="guia">
     <div class="section-header">
-      <span class="section-label">Concierge</span>
-      <h2 class="section-title">Recomendaciones del Anfitrión</h2>
+      <span class="section-label">Recomendaciones</span>
+      <h2 class="section-title">Qué visitar en <em>Mecatán y alrededores</em></h2>
     </div>
-    <div class="grid-3" id="guia-grid"></div>
+    <div class="grid-3" id="guia-grid">
+      <div class="guia-card">
+        <div>
+          <div class="guia-tag">Aventura</div>
+          <h3>Cascadas de Mecatán</h3>
+          <p style="font-size: 14px; margin-top: 8px;">Hermosas pozas naturales y senderos verdes para conectar con la naturaleza.</p>
+        </div>
+        <a href="https://maps.google.com/?q=Cascadas+Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
+      </div>
+      <div class="guia-card">
+        <div>
+          <div class="guia-tag">Gastronomía</div>
+          <h3>Mariscos en San Blas</h3>
+          <p style="font-size: 14px; margin-top: 8px;">Disfruta del pescado zarandeado fresco y la comida del mar típica nayarita.</p>
+        </div>
+        <a href="https://maps.google.com/?q=San+Blas+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
+      </div>
+      <div class="guia-card">
+        <div>
+          <div class="guia-tag">Servicios</div>
+          <h3>Tiendas y Abarrotes</h3>
+          <p style="font-size: 14px; margin-top: 8px;">Depósitos y tiendas de abarrotes en el centro de Mecatán para víveres y botanas.</p>
+        </div>
+        <a href="https://maps.google.com/?q=Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Ver en Maps</a>
+      </div>
+    </div>
   </section>
 
-  <a id="wa-float" href="#" target="_blank" class="wa-float">💬</a>
+  <!-- Módulo de Reserva / Airbnb con Código QR -->
+  <section id="reserva" style="padding-top: 0;">
+    <div class="reserva-box">
+      <h2 style="font-family: var(--serif); font-size: 34px; margin-bottom: 12px;">¿Listo para tu descanso?</h2>
+      <p style="max-width: 500px; color: rgba(255,255,255,0.85); font-size: 16px;">
+        Reserva directamente por WhatsApp para obtener la mejor tarifa sin comisiones extras, o escanea para reservar vía Airbnb.
+      </p>
 
-  <!-- LÓGICA DE CONEXIÓN A GOOGLE SHEETS -->
+      <div class="qr-container">
+        <!-- Generador de QR dinámico hacia el enlace de Airbnb -->
+        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.airbnb.mx" alt="QR Airbnb">
+      </div>
+      <p style="font-size: 12px; color: var(--gold2); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;">Escanea con tu celular para abrir en Airbnb</p>
+
+      <a id="ui-btn-wa" href="https://wa.me/523110000000?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="btn-reservar" style="font-size: 16px; padding: 14px 36px;">
+        💬 Contactar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- WhatsApp Flotante -->
+  <a id="wa-float" href="https://wa.me/523110000000?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="wa-float" title="WhatsApp">💬</a>
+
+  <!-- Sincronización en segundo plano con tu Google Sheets -->
   <script>
-    // ID de tu Google Sheet
     const SHEET_ID = '14mE2RHs3U3L8a5BgOPfOOvJAPF3k7Ov5h7ANDQMeXQA';
 
-    // Función para procesar CSV estándar
     function parseCSV(str) {
       const arr = [];
       let quote = false, row = 0, col = 0;
@@ -213,103 +334,80 @@
       return arr;
     }
 
-    // Extraer ID de YouTube para los iframes
     function getYoutubeID(url) {
       const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
       const match = url.match(regExp);
       return (match && match[2].length === 11) ? match[2] : null;
     }
 
-    async function cargarDatos() {
+    async function sincronizarConGoogleSheets() {
       try {
         const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv`;
-        const response = await fetch(url);
-        const csvText = await response.text();
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const csvText = await res.text();
         const data = parseCSV(csvText);
 
-        const galeriaHTML = [];
-        const amenidadesHTML = [];
-        const preciosHTML = [];
-        const guiaHTML = [];
-        let waTelefono = '';
-        let waMensaje = '';
+        const galeria = [];
+        const amenidades = [];
+        const precios = [];
+        const guia = [];
+        let waTel = '523110000000';
+        let waMsg = 'Hola, me interesa reservar Casa Mecatán';
 
-        // Ignorar la primera fila (encabezados) y recorrer datos
         for (let i = 1; i < data.length; i++) {
-          const [cat, clave_tit, valor_url, desc, extra] = data[i];
+          const [cat, colB, colC, colD, colE] = data[i];
           if (!cat) continue;
 
           if (cat === 'Configuracion') {
-            if (clave_tit === 'Nombre_Casa') {
-              document.getElementById('ui-title').innerText = valor_url;
-              document.getElementById('ui-logo').innerHTML = `${valor_url.split(' ')[0]} <span>${valor_url.split(' ').slice(1).join(' ')}</span>`;
-              document.title = valor_url + " | Renta Vacacional";
+            if (colB === 'Nombre_Casa') {
+              document.getElementById('ui-title').innerHTML = `${colC.split(' ')[0]} <em>${colC.split(' ').slice(1).join(' ')}</em>`;
+              document.getElementById('ui-logo').innerHTML = `${colC.split(' ')[0]} <span>${colC.split(' ').slice(1).join(' ')}</span>`;
+              document.title = colC + " · Tu refugio en Nayarit";
             }
-            if (clave_tit === 'Subtitulo') document.getElementById('ui-subtitle').innerText = valor_url;
-            if (clave_tit === 'Color_Principal') document.documentElement.style.setProperty('--forest', valor_url);
-            if (clave_tit === 'Color_Acento') document.documentElement.style.setProperty('--gold', valor_url);
-            if (clave_tit === 'Telefono_WhatsApp') waTelefono = valor_url;
-            if (clave_tit === 'Mensaje_WhatsApp') waMensaje = valor_url;
-            if (clave_tit === 'URL_Airbnb' && valor_url.includes('http')) {
-              document.getElementById('ui-qr-box').style.display = 'flex';
-              document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(valor_url)}`;
+            if (colB === 'Subtitulo') document.getElementById('ui-subtitle').innerText = colC;
+            if (colB === 'Color_Principal') document.documentElement.style.setProperty('--forest', colC);
+            if (colB === 'Color_Acento') document.documentElement.style.setProperty('--gold', colC);
+            if (colB === 'Telefono_WhatsApp') waTel = colC;
+            if (colB === 'Mensaje_WhatsApp') waMsg = colC;
+            if (colB === 'URL_Airbnb' && colC.startsWith('http')) {
+              document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(colC)}`;
             }
           }
-
           if (cat === 'Foto' || cat === 'Video') {
-            let media = cat === 'Video' 
-              ? `<iframe src="https://www.youtube.com/embed/${getYoutubeID(valor_url)}" allowfullscreen></iframe>`
-              : `<img src="${valor_url}" alt="${clave_tit}">`;
-            galeriaHTML.push(`<div class="media-card">${media}<h3>${clave_tit}</h3></div>`);
+            const media = cat === 'Video'
+              ? `<iframe src="https://www.youtube.com/embed/${getYoutubeID(colC)}" allowfullscreen></iframe>`
+              : `<img src="${colC}" alt="${colB}">`;
+            galeria.push(`<div class="media-card">${media}<h3>${colB}</h3></div>`);
           }
-
           if (cat === 'Amenidad') {
-            amenidadesHTML.push(`<div class="amenidad-card"><span class="amenidad-icon">${clave_tit}</span><h3>${valor_url}</h3><p>${desc}</p></div>`);
+            amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${colB}</span><h3>${colC}</h3><p>${colD}</p></div>`);
           }
-
           if (cat === 'Tarifa') {
-            const isDestacado = extra === 'Destacado' ? 'destacado' : '';
-            const badge = extra ? `<div class="precio-badge">${extra}</div>` : '';
-            preciosHTML.push(`
-              <div class="precio-card ${isDestacado}">
-                ${badge}
-                <h3>${clave_tit}</h3>
-                <div class="precio-monto">${valor_url}</div>
-                <p>${desc}</p>
-              </div>`);
+            const dest = colE === 'Destacado' ? 'destacado' : '';
+            const badge = colE ? `<div class="precio-badge">${colE}</div>` : '';
+            precios.push(`<div class="precio-card ${dest}">${badge}<h3>${colB}</h3><div class="precio-monto">${colC}</div><p>${colD}</p></div>`);
           }
-
           if (cat === 'Guia') {
-            guiaHTML.push(`
-              <div class="guia-card">
-                <div>
-                  <div class="guia-tag">${extra}</div>
-                  <h3>${clave_tit}</h3>
-                  <p style="font-size: 14px; margin-top: 8px;">${desc}</p>
-                </div>
-                <a href="${valor_url}" target="_blank" class="guia-btn">📍 Ver en Google Maps</a>
-              </div>`);
+            guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:14px;margin-top:8px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
           }
         }
 
-        // Renderizar en pantalla
-        document.getElementById('galeria-grid').innerHTML = galeriaHTML.join('');
-        document.getElementById('amenidades-grid').innerHTML = amenidadesHTML.join('');
-        document.getElementById('precios-grid').innerHTML = preciosHTML.join('');
-        document.getElementById('guia-grid').innerHTML = guiaHTML.join('');
+        if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
+        if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
+        if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
+        if (guia.length > 0) document.getElementById('guia-grid').innerHTML = guia.join('');
 
-        // Configurar enlaces WhatsApp
-        const linkWA = `https://wa.me/${waTelefono}?text=${encodeURIComponent(waMensaje)}`;
-        document.getElementById('wa-float').href = linkWA;
-        document.getElementById('ui-nav-wa').href = linkWA;
+        const finalWA = `https://wa.me/${waTel}?text=${encodeURIComponent(waMsg)}`;
+        document.getElementById('ui-btn-wa').href = finalWA;
+        document.getElementById('wa-float').href = finalWA;
 
-      } catch (error) {
-        console.error("Error cargando Google Sheets:", error);
-        document.getElementById('ui-subtitle').innerText = "Falta vincular el ID de Google Sheets en el código.";
+      } catch (err) {
+        console.log("Mostrando contenido prellenado por defecto.");
       }
     }
 
-    window.addEventListener('DOMContentLoaded', cargarDatos);
+    window.addEventListener('DOMContentLoaded', sincronizarConGoogleSheets);
   </script>
 </body>
 </html>
