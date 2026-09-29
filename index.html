@@ -96,7 +96,7 @@
 
     /* Amenidades */
     .amenidad-card {
-      background: var(--sand); padding: 28px 20px; border-radius: 16px; text-align: center;
+      background: var(--sand); padding: 30px 20px; border-radius: 16px; text-align: center;
       border: 1px solid rgba(0,0,0,0.04); transition: transform 0.25s;
     }
     .amenidad-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
@@ -229,7 +229,7 @@
     <div class="hero-badges">
       <div class="badge"><span>🏊</span> Alberca privada</div>
       <div class="badge"><span>🌿</span> Entorno natural</div>
-      <div class="badge"><span>👨‍👩‍‍👧‍👦</span> Ideal familias</div>
+      <div class="badge"><span>👨‍👩‍👧‍👦</span> Ideal familias</div>
       <div class="badge"><span>⭐</span> Anuncio Verificado en Airbnb</div>
     </div>
 
@@ -466,12 +466,12 @@
       return (match && match[2].length === 11) ? match[2] : null;
     }
 
-    // Extractor robusto de iCal de Airbnb
+    // Extractor robusto de iCal de Airbnb que lee directo tu enlace
     async function cargarCalendarioAirbnb() {
       const proxies = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(AIRBNB_ICAL_URL)}&_t=${Date.now()}`,
         `https://corsproxy.io/?url=${encodeURIComponent(AIRBNB_ICAL_URL)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(AIRBNB_ICAL_URL)}`,
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(AIRBNB_ICAL_URL)}&_t=${Date.now()}`
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(AIRBNB_ICAL_URL)}`
       ];
 
       let icalText = null;
@@ -485,13 +485,10 @@
               break;
             }
           }
-        } catch (e) {
-          // Intentar con el siguiente proxy
-        }
+        } catch (e) {}
       }
 
       if (icalText) {
-        // Extrae todos los eventos VEVENT independientemente de si DTEND o DTSTART viene primero
         const vevents = icalText.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
         for (let vevent of vevents) {
           const mStart = vevent.match(/DTSTART(?:;[^:]*)?:(\d{8})/);
@@ -586,10 +583,9 @@
       renderizarCalendario();
     }
 
-    // Sincronización con Google Sheets (prueba múltiples rutas públicas)
+    // Sincronización directa con Google Sheets (usando tu ID exacto)
     async function sincronizarConGoogleSheets() {
       const endpoints = [
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vRQl5zwuigwFJUNu7zJ3RdWv9cr-U_OsEe-eOMHV5EPr-akSK-s0ofrJ8Cv4oinYL880v_MsHlJn73u/pub?output=csv&_t=${Date.now()}`,
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&_t=${Date.now()}`,
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&id=${SHEET_ID}&gid=0&_t=${Date.now()}`
       ];
