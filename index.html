@@ -28,25 +28,26 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--body); background: var(--white); color: var(--ink); line-height: 1.6; }
+    body { font-family: var(--body); background: var(--white); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
 
     /* Nav */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 36px; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(26,58,42,0.96); backdrop-filter: blur(10px); color: white;
+      padding: 14px 32px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(26,58,42,0.97); backdrop-filter: blur(10px); color: white;
       box-shadow: 0 4px 25px rgba(0,0,0,0.15);
     }
-    .nav-logo { font-family: var(--serif); font-size: 24px; color: var(--white); font-weight: 300; }
+    .nav-logo { font-family: var(--serif); font-size: 22px; color: var(--white); font-weight: 300; }
     .nav-logo span { color: var(--gold2); font-style: italic; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
     .nav-links a { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; transition: color 0.2s; color: rgba(255,255,255,0.85); }
     .nav-links a:hover { color: var(--gold2); }
     .btn-reservar {
-      background: var(--gold); color: var(--forest) !important; padding: 10px 24px;
+      background: var(--gold); color: var(--forest) !important; padding: 9px 20px;
       border-radius: 30px; font-weight: 700; transition: transform 0.2s, background 0.2s;
-      display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; font-family: var(--body);
+      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; border: none; font-family: var(--body);
+      font-size: 13px;
     }
     .btn-reservar:hover { background: var(--gold2); transform: translateY(-2px); }
 
@@ -54,77 +55,75 @@
     #hero {
       min-height: 85vh; display: flex; flex-direction: column; justify-content: center;
       align-items: center; text-align: center; background: linear-gradient(180deg, rgba(26,58,42,0.85) 0%, rgba(26,58,42,0.98) 100%), var(--forest);
-      color: white; padding: 140px 24px 80px; position: relative;
+      color: white; padding: 130px 20px 70px; position: relative;
     }
-    .hero-pretitle { color: var(--gold2); text-transform: uppercase; letter-spacing: .35em; font-size: 12px; margin-bottom: 16px; font-weight: 500; }
-    .hero-title { font-family: var(--serif); font-size: clamp(44px, 7vw, 80px); line-height: 1.1; margin-bottom: 20px; font-weight: 300; }
+    .hero-pretitle { color: var(--gold2); text-transform: uppercase; letter-spacing: .35em; font-size: 11px; margin-bottom: 14px; font-weight: 500; }
+    .hero-title { font-family: var(--serif); font-size: clamp(40px, 7vw, 75px); line-height: 1.1; margin-bottom: 16px; font-weight: 300; }
     .hero-title em { font-style: italic; color: var(--gold2); }
-    .hero-sub { max-width: 650px; font-size: 18px; color: rgba(255,255,255,0.88); margin-bottom: 30px; font-weight: 300; }
+    .hero-sub { max-width: 600px; font-size: 17px; color: rgba(255,255,255,0.88); margin-bottom: 28px; font-weight: 300; }
     
-    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
     .badge {
       background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 40px; padding: 8px 18px; font-size: 13px; display: flex; align-items: center; gap: 8px;
+      border-radius: 40px; padding: 7px 16px; font-size: 12px; display: flex; align-items: center; gap: 6px;
     }
 
-    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-outline {
-      border: 1.5px solid rgba(255,255,255,0.6); padding: 10px 24px; border-radius: 30px;
-      font-size: 14px; transition: all 0.3s; color: white;
+      border: 1.5px solid rgba(255,255,255,0.6); padding: 10px 22px; border-radius: 30px;
+      font-size: 13px; transition: all 0.3s; color: white;
     }
     .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.15); }
 
     /* Secciones Generales */
-    section { padding: 85px 24px; max-width: 1150px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 50px; }
-    .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; margin-bottom: 8px; display: block; }
-    .section-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 46px); color: var(--forest); font-weight: 300; }
+    section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 45px; }
+    .section-label { color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 700; margin-bottom: 6px; display: block; }
+    .section-title { font-family: var(--serif); font-size: clamp(30px, 4.5vw, 44px); color: var(--forest); font-weight: 300; }
     .section-title em { font-style: italic; color: var(--leaf); }
 
-    /* Grids */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    /* Grids Responsive */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
 
-    /* Galería */
+    /* Galería Optimizada */
     .media-card {
-      border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       background: white; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
     }
-    .media-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
-    .media-card img, .media-card iframe { width: 100%; height: 260px; object-fit: cover; border: none; display: block; }
-    .media-card h3 { padding: 16px 20px; font-size: 15px; color: var(--forest); font-weight: 500; }
+    .media-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .media-card img, .media-card iframe { width: 100%; height: 240px; object-fit: cover; border: none; display: block; }
+    .media-card h3 { padding: 14px 18px; font-size: 14px; color: var(--forest); font-weight: 500; }
 
     /* Amenidades */
     .amenidad-card {
-      background: var(--sand); padding: 30px 20px; border-radius: 16px; text-align: center;
+      background: var(--sand); padding: 26px 18px; border-radius: 14px; text-align: center;
       border: 1px solid rgba(0,0,0,0.04); transition: transform 0.25s;
     }
-    .amenidad-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-    .amenidad-icon { font-size: 40px; margin-bottom: 12px; display: block; }
-    .amenidad-card h3 { font-size: 16px; color: var(--forest); margin-bottom: 6px; }
+    .amenidad-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+    .amenidad-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+    .amenidad-card h3 { font-size: 15px; color: var(--forest); margin-bottom: 6px; }
     .amenidad-card p { font-size: 13px; color: var(--ink3); }
 
     /* Calendario Airbnb */
     .cal-wrapper {
-      background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 24px; padding: 36px 28px;
-      box-shadow: 0 12px 40px rgba(26,58,42,0.06); max-width: 900px; margin: 0 auto;
+      background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 22px; padding: 32px 24px;
+      box-shadow: 0 10px 35px rgba(26,58,42,0.06); max-width: 860px; margin: 0 auto;
     }
-    .cal-controls {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;
-    }
+    .cal-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
     .cal-nav-btn {
-      background: var(--sand); border: none; border-radius: 50%; width: 40px; height: 40px;
-      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px;
+      background: var(--sand); border: none; border-radius: 50%; width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15px;
       color: var(--forest); font-weight: 700; transition: background 0.2s;
     }
     .cal-nav-btn:hover { background: var(--gold2); }
-    .cal-months { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 32px; }
-    .cal-month-title { text-align: center; font-weight: 700; color: var(--forest); margin-bottom: 14px; font-size: 16px; letter-spacing: 0.05em; }
-    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
-    .cal-day-name { font-size: 12px; font-weight: 700; color: var(--ink3); padding-bottom: 8px; }
+    .cal-months { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; }
+    .cal-month-title { text-align: center; font-weight: 700; color: var(--forest); margin-bottom: 12px; font-size: 15px; letter-spacing: 0.05em; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+    .cal-day-name { font-size: 11px; font-weight: 700; color: var(--ink3); padding-bottom: 6px; }
     .cal-day {
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-      font-size: 13px; border-radius: 8px; background: var(--white); cursor: pointer; user-select: none;
+      font-size: 12px; border-radius: 6px; background: var(--white); cursor: pointer; user-select: none;
       transition: background 0.15s, color 0.15s;
     }
     .cal-day.empty { background: transparent; cursor: default; }
@@ -133,75 +132,71 @@
       background: #ffe3e3 !important; color: #b73232 !important; text-decoration: line-through; cursor: not-allowed; opacity: 0.75;
     }
     .cal-day.selected { background: var(--forest) !important; color: white !important; font-weight: 700; }
-    .cal-legend {
-      display: flex; gap: 20px; justify-content: center; margin-top: 24px; font-size: 13px; flex-wrap: wrap;
-    }
-    .cal-legend span { display: flex; align-items: center; gap: 6px; }
-    .cal-dot { width: 12px; height: 12px; border-radius: 4px; }
+    .cal-legend { display: flex; gap: 16px; justify-content: center; margin-top: 22px; font-size: 12px; flex-wrap: wrap; }
+    .cal-legend span { display: flex; align-items: center; gap: 5px; }
+    .cal-dot { width: 10px; height: 10px; border-radius: 3px; }
 
     /* Precios */
     .precio-card {
-      background: white; border: 2px solid var(--sand2); border-radius: 20px; padding: 40px 30px;
+      background: white; border: 2px solid var(--sand2); border-radius: 18px; padding: 36px 26px;
       text-align: center; position: relative; transition: all 0.3s;
     }
-    .precio-card.destacado { border-color: var(--forest); box-shadow: 0 15px 40px rgba(26,58,42,0.09); }
+    .precio-card.destacado { border-color: var(--forest); box-shadow: 0 12px 35px rgba(26,58,42,0.09); }
     .precio-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: var(--forest); font-size: 11px; font-weight: 700;
-      padding: 4px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--forest); font-size: 10px; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
     }
-    .precio-monto { font-size: 46px; font-family: var(--serif); color: var(--forest); margin: 14px 0; }
+    .precio-monto { font-size: 42px; font-family: var(--serif); color: var(--forest); margin: 12px 0; }
 
     /* Guía Local */
     .guia-card {
-      background: white; border-radius: 16px; padding: 24px; border: 1px solid rgba(0,0,0,0.08);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      background: white; border-radius: 14px; padding: 22px; border: 1px solid rgba(0,0,0,0.08);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
-    .guia-tag { font-size: 11px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 4px 12px; border-radius: 20px; width: fit-content; font-weight: 700; }
-    .guia-card h3 { font-size: 18px; color: var(--forest); }
+    .guia-tag { font-size: 10px; text-transform: uppercase; background: var(--sand); color: var(--forest); padding: 3px 10px; border-radius: 20px; width: fit-content; font-weight: 700; }
+    .guia-card h3 { font-size: 17px; color: var(--forest); }
     .guia-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--forest); color: white !important; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 500;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      background: var(--forest); color: white !important; padding: 9px 16px; border-radius: 7px; font-size: 13px; font-weight: 500;
       transition: background 0.2s;
     }
     .guia-btn:hover { background: var(--gold); color: var(--forest) !important; }
 
     /* Módulo Reserva Airbnb & QR */
     .reserva-box {
-      background: var(--forest); color: white; border-radius: 24px; padding: 50px 30px;
-      text-align: center; margin-top: 40px; display: flex; flex-direction: column; align-items: center;
+      background: var(--forest); color: white; border-radius: 22px; padding: 45px 24px;
+      text-align: center; margin-top: 30px; display: flex; flex-direction: column; align-items: center;
     }
     .qr-container {
-      background: white; padding: 14px; border-radius: 16px; margin: 20px 0 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      background: white; padding: 12px; border-radius: 14px; margin: 18px 0 10px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
     }
-    .qr-container img { width: 160px; height: 160px; display: block; }
+    .qr-container img { width: 150px; height: 150px; display: block; }
 
     /* Lightbox Modal */
     #lightbox {
       display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(10,20,14,0.95); align-items: center; justify-content: center; padding: 20px;
+      background: rgba(10,20,14,0.95); align-items: center; justify-content: center; padding: 16px;
     }
-    #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; object-fit: contain; }
-    #lightbox-close {
-      position: absolute; top: 20px; right: 24px; color: white; font-size: 36px; cursor: pointer;
-    }
+    #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 10px; object-fit: contain; }
+    #lightbox-close { position: absolute; top: 16px; right: 20px; color: white; font-size: 32px; cursor: pointer; }
 
     /* WhatsApp Flotante */
     .wa-float {
-      position: fixed; bottom: 28px; right: 28px; background: #25D366; color: white;
-      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-size: 30px; box-shadow: 0 6px 25px rgba(37,211,102,0.4); z-index: 99;
+      position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white;
+      width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 28px; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 99;
       transition: transform 0.2s;
     }
     .wa-float:hover { transform: scale(1.1); }
 
     @media(max-width: 768px) {
       .nav-links { display: none; }
-      nav { padding: 14px 20px; }
-      #hero { padding-top: 110px; }
-      .cal-wrapper { padding: 20px 14px; }
+      nav { padding: 12px 18px; }
+      #hero { padding-top: 100px; }
+      .cal-wrapper { padding: 18px 12px; }
     }
   </style>
 </head>
@@ -234,7 +229,7 @@
     </div>
 
     <div class="hero-ctas">
-      <a href="#calendario" class="btn-reservar" style="padding: 14px 34px;">📅 Ver Calendario y Disponibilidad</a>
+      <a href="#calendario" class="btn-reservar" style="padding: 13px 30px;">📅 Ver Calendario y Disponibilidad</a>
       <a href="#galeria" class="btn-outline">Ver Fotos</a>
     </div>
   </header>
@@ -296,13 +291,13 @@
     <div class="section-header">
       <span class="section-label">Disponibilidad en Vivo</span>
       <h2 class="section-title">Calendario Sincronizado con <em>Airbnb</em></h2>
-      <p style="margin-top: 10px; color: var(--ink3); font-size: 15px;">Selecciona tu fecha de llegada y salida para reservar directamente sin comisiones extras.</p>
+      <p style="margin-top: 8px; color: var(--ink3); font-size: 14px;">Selecciona tu fecha de llegada y salida para reservar directamente sin comisiones extras.</p>
     </div>
 
     <div class="cal-wrapper">
       <div class="cal-controls">
         <button class="cal-nav-btn" onclick="cambiarMes(-1)" title="Mes anterior">&#8592;</button>
-        <span style="font-weight: 700; color: var(--forest); font-size: 14px; text-transform: uppercase;">Navegar Calendario</span>
+        <span style="font-weight: 700; color: var(--forest); font-size: 13px; text-transform: uppercase;">Navegar Calendario</span>
         <button class="cal-nav-btn" onclick="cambiarMes(1)" title="Mes siguiente">&#8594;</button>
       </div>
 
@@ -316,8 +311,8 @@
         <span><div class="cal-dot" style="background: #ffe3e3; border: 1px solid #b73232;"></div> Ocupado en Airbnb</span>
       </div>
 
-      <div style="text-align: center; margin-top: 28px;" id="cal-reserva-info">
-        <p id="cal-fechas-txt" style="font-size: 15px; margin-bottom: 12px; font-weight: 500;">Haz clic en tu fecha de llegada y salida en el calendario.</p>
+      <div style="text-align: center; margin-top: 24px;" id="cal-reserva-info">
+        <p id="cal-fechas-txt" style="font-size: 14px; margin-bottom: 10px; font-weight: 500;">Haz clic en tu fecha de llegada y salida en el calendario.</p>
         <a id="cal-wa-btn" href="#" target="_blank" class="btn-reservar" style="display: none;">
           💬 Confirmar fechas por WhatsApp
         </a>
@@ -331,7 +326,7 @@
       <span class="section-label">Precios</span>
       <h2 class="section-title">Tarifas <em>claras y transparentes</em></h2>
     </div>
-    <div class="grid-3" style="justify-content: center; max-width: 800px; margin: 0 auto;" id="precios-grid">
+    <div class="grid-3" style="justify-content: center; max-width: 780px; margin: 0 auto;" id="precios-grid">
       <div class="precio-card">
         <h3>Entre Semana</h3>
         <div class="precio-monto" id="p-regular">$2,500</div>
@@ -346,7 +341,7 @@
     </div>
   </section>
 
-  <!-- Guía Local / Lugares Recomendados con Enlaces a Maps -->
+  <!-- Guía Local -->
   <section id="guia">
     <div class="section-header">
       <span class="section-label">Qué Visitar</span>
@@ -357,7 +352,7 @@
         <div>
           <div class="guia-tag">Aventura</div>
           <h3>Cascadas de Mecatán</h3>
-          <p style="font-size: 14px; margin-top: 8px;">Hermosas pozas naturales y senderos verdes para nadar y conectar con la naturaleza a unos minutos.</p>
+          <p style="font-size: 13px; margin-top: 6px;">Hermosas pozas naturales y senderos verdes para nadar y conectar con la naturaleza a unos minutos.</p>
         </div>
         <a href="https://maps.google.com/?q=Cascadas+Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
       </div>
@@ -365,7 +360,7 @@
         <div>
           <div class="guia-tag">Gastronomía</div>
           <h3>Mariscos en San Blas</h3>
-          <p style="font-size: 14px; margin-top: 8px;">Disfruta del pescado zarandeado tradicional y la cocina costera nayarita en los restaurantes del puerto.</p>
+          <p style="font-size: 13px; margin-top: 6px;">Disfruta del pescado zarandeado tradicional y la cocina costera nayarita en los restaurantes del puerto.</p>
         </div>
         <a href="https://maps.google.com/?q=San+Blas+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
       </div>
@@ -373,7 +368,7 @@
         <div>
           <div class="guia-tag">Servicios</div>
           <h3>Tiendas y Depósitos</h3>
-          <p style="font-size: 14px; margin-top: 8px;">Tiendas de conveniencia en el centro del pueblo para comprar botanas, carne para asar y bebidas.</p>
+          <p style="font-size: 13px; margin-top: 6px;">Tiendas de conveniencia en el centro del pueblo para comprar botanas, carne para asar y bebidas.</p>
         </div>
         <a href="https://maps.google.com/?q=Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
       </div>
@@ -383,24 +378,23 @@
   <!-- Módulo Oficial Airbnb con QR Auténtico -->
   <section id="reserva" style="padding-top: 0;">
     <div class="reserva-box">
-      <h2 style="font-family: var(--serif); font-size: 34px; margin-bottom: 12px; font-weight: 300;">Reserva Directa o en Airbnb</h2>
-      <p style="max-width: 550px; color: rgba(255,255,255,0.9); font-size: 16px;">
+      <h2 style="font-family: var(--serif); font-size: 32px; margin-bottom: 10px; font-weight: 300;">Reserva Directa o en Airbnb</h2>
+      <p style="max-width: 520px; color: rgba(255,255,255,0.9); font-size: 15px;">
         Contáctanos directamente por WhatsApp para obtener la mejor tarifa sin comisiones intermedias, o escanea el código para reservar a través de Airbnb.
       </p>
 
       <div class="qr-container">
-        <!-- Código QR hacia tu anuncio de Airbnb -->
-        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
+        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
       </div>
-      <p style="font-size: 12px; color: var(--gold2); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px;">
+      <p style="font-size: 11px; color: var(--gold2); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px;">
         Escanea con la cámara de tu celular para abrir en Airbnb
       </p>
 
-      <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
-        <a id="ui-btn-wa" href="https://wa.me/523271080200?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="btn-reservar" style="font-size: 15px; padding: 12px 30px;">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+        <a id="ui-btn-wa" href="https://wa.me/523271080200?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="btn-reservar" style="font-size: 14px; padding: 11px 26px;">
           💬 Contactar por WhatsApp
         </a>
-        <a id="ui-btn-airbnb" href="https://www.airbnb.mx/rooms/977651411960436380" target="_blank" class="btn-outline" style="font-size: 15px; padding: 12px 28px;">
+        <a id="ui-btn-airbnb" href="https://www.airbnb.mx/rooms/977651411960436380" target="_blank" class="btn-outline" style="font-size: 14px; padding: 11px 24px;">
           🏠 Abrir en Airbnb
         </a>
       </div>
@@ -416,7 +410,7 @@
   <!-- WhatsApp Flotante -->
   <a id="wa-float" href="https://wa.me/523271080200?text=Hola,%20me%20interesa%20reservar%20Casa%20Mecatan" target="_blank" class="wa-float" title="WhatsApp">💬</a>
 
-  <!-- SCRIPT DE SINCRONIZACIÓN -->
+  <!-- SCRIPT DE SINCRONIZACIÓN BLINDADO -->
   <script>
     const SHEET_ID = '14mE2RHs3U3L8a5BgOPfOOvJAPF3k7Ov5h7ANDQMeXQA';
 
@@ -459,14 +453,19 @@
       return arr;
     }
 
+    // Extractor de YouTube robusto compatible con watch, youtu.be, embed y shorts
     function getYoutubeID(url) {
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-      const match = url.match(regExp);
-      return (match && match[2].length === 11) ? match[2] : null;
+      if (!url) return null;
+      const pattern = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
+      const match = url.match(pattern);
+      return match ? match[1] : null;
     }
 
     async function cargarCalendarioAirbnb(icalUrl) {
-      if (!icalUrl || !icalUrl.startsWith('http')) return;
+      if (!icalUrl || !icalUrl.startsWith('http')) {
+        renderizarCalendario();
+        return;
+      }
       const proxies = [
         `https://api.allorigins.win/raw?url=${encodeURIComponent(icalUrl)}&_t=${Date.now()}`,
         `https://corsproxy.io/?url=${encodeURIComponent(icalUrl)}`,
@@ -582,7 +581,6 @@
       renderizarCalendario();
     }
 
-    // Sincronización directa con Google Sheets
     async function sincronizarConGoogleSheets() {
       const endpoints = [
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&_t=${Date.now()}`,
@@ -603,82 +601,79 @@
         } catch (e) {}
       }
 
-      if (!csvText) {
-        renderizarCalendario();
-        return;
+      let icalEncontrado = 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
+
+      if (csvText) {
+        const data = parseCSV(csvText);
+        const galeria = [];
+        const amenidades = [];
+        const precios = [];
+        const guia = [];
+        let waTel = '523271080200';
+        let waMsg = 'Hola, me interesa reservar Casa Mecatán';
+
+        for (let i = 1; i < data.length; i++) {
+          const [cat, colB, colC, colD, colE] = data[i];
+          if (!cat) continue;
+
+          if (cat === 'Configuracion') {
+            if (colB === 'Nombre_Casa') {
+              document.getElementById('ui-title').innerHTML = `${colC.split(' ')[0]} <em>${colC.split(' ').slice(1).join(' ')}</em>`;
+              document.getElementById('ui-logo').innerHTML = `${colC.split(' ')[0]} <span>${colC.split(' ').slice(1).join(' ')}</span>`;
+              document.title = colC + " · Tu refugio en Nayarit";
+            }
+            if (colB === 'Subtitulo') document.getElementById('ui-subtitle').innerText = colC;
+            if (colB === 'Color_Principal') document.documentElement.style.setProperty('--forest', colC);
+            if (colB === 'Color_Acento') document.documentElement.style.setProperty('--gold', colC);
+            if (colB === 'Telefono_WhatsApp') { waTel = colC; telWhatsappActual = colC; }
+            if (colB === 'Mensaje_WhatsApp') waMsg = colC;
+            if (colB === 'URL_Airbnb' && colC.startsWith('http')) {
+              document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(colC)}`;
+              document.getElementById('ui-btn-airbnb').href = colC;
+            }
+          }
+          if (cat === 'Foto' || cat === 'Video') {
+            const ytId = getYoutubeID(colC);
+            const media = cat === 'Video' && ytId
+              ? `<iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe>`
+              : `<img src="${colC}" alt="${colB}">`;
+            const clickAttr = cat === 'Foto' ? `onclick="abrirLightbox('${colC}')"` : '';
+            galeria.push(`<div class="media-card" ${clickAttr}>${media}<h3>${colB}</h3></div>`);
+          }
+          if (cat === 'Amenidad') {
+            amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${colB}</span><h3>${colC}</h3><p>${colD}</p></div>`);
+          }
+          if (cat === 'Tarifa') {
+            const dest = colE === 'Destacado' ? 'destacado' : '';
+            const badge = colE ? `<div class="precio-badge">${colE}</div>` : '';
+            precios.push(`<div class="precio-card ${dest}">${badge}<h3>${colB}</h3><div class="precio-monto">${colC}</div><p>${colD}</p></div>`);
+          }
+          if (cat === 'Guia') {
+            guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:13px;margin-top:6px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
+          }
+          if (cat === 'Bloqueo') {
+            if (colB && colB.startsWith('http')) {
+              icalEncontrado = colB.trim();
+            } else if (colB) {
+              const start = colB.trim().replace(/-/g, '');
+              const end = (colC && colC.trim()) ? colC.trim().replace(/-/g, '') : start;
+              bloquearRangoFechas(start, end);
+            }
+          }
+        }
+
+        if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
+        if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
+        if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
+        if (guia.length > 0) document.getElementById('guia-grid').innerHTML = guia.join('');
+
+        const finalWA = `https://wa.me/${waTel}?text=${encodeURIComponent(waMsg)}`;
+        document.getElementById('ui-btn-wa').href = finalWA;
+        document.getElementById('wa-float').href = finalWA;
       }
 
-      const data = parseCSV(csvText);
-      const galeria = [];
-      const amenidades = [];
-      const precios = [];
-      const guia = [];
-      let waTel = '523271080200';
-      let waMsg = 'Hola, me interesa reservar Casa Mecatán';
-      let icalEncontrado = '';
-
-      for (let i = 1; i < data.length; i++) {
-        const [cat, colB, colC, colD, colE] = data[i];
-        if (!cat) continue;
-
-        if (cat === 'Configuracion') {
-          if (colB === 'Nombre_Casa') {
-            document.getElementById('ui-title').innerHTML = `${colC.split(' ')[0]} <em>${colC.split(' ').slice(1).join(' ')}</em>`;
-            document.getElementById('ui-logo').innerHTML = `${colC.split(' ')[0]} <span>${colC.split(' ').slice(1).join(' ')}</span>`;
-            document.title = colC + " · Tu refugio en Nayarit";
-          }
-          if (colB === 'Subtitulo') document.getElementById('ui-subtitle').innerText = colC;
-          if (colB === 'Color_Principal') document.documentElement.style.setProperty('--forest', colC);
-          if (colB === 'Color_Acento') document.documentElement.style.setProperty('--gold', colC);
-          if (colB === 'Telefono_WhatsApp') { waTel = colC; telWhatsappActual = colC; }
-          if (colB === 'Mensaje_WhatsApp') waMsg = colC;
-          if (colB === 'URL_Airbnb' && colC.startsWith('http')) {
-            document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(colC)}`;
-            document.getElementById('ui-btn-airbnb').href = colC;
-          }
-        }
-        if (cat === 'Foto' || cat === 'Video') {
-          const media = cat === 'Video'
-            ? `<iframe src="https://www.youtube.com/embed/${getYoutubeID(colC)}" allowfullscreen></iframe>`
-            : `<img src="${colC}" alt="${colB}">`;
-          const clickAttr = cat === 'Foto' ? `onclick="abrirLightbox('${colC}')"` : '';
-          galeria.push(`<div class="media-card" ${clickAttr}>${media}<h3>${colB}</h3></div>`);
-        }
-        if (cat === 'Amenidad') {
-          amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${colB}</span><h3>${colC}</h3><p>${colD}</p></div>`);
-        }
-        if (cat === 'Tarifa') {
-          const dest = colE === 'Destacado' ? 'destacado' : '';
-          const badge = colE ? `<div class="precio-badge">${colE}</div>` : '';
-          precios.push(`<div class="precio-card ${dest}">${badge}<h3>${colB}</h3><div class="precio-monto">${colC}</div><p>${colD}</p></div>`);
-        }
-        if (cat === 'Guia') {
-          guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:14px;margin-top:8px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
-        }
-        if (cat === 'Bloqueo') {
-          // Si la categoría es Bloqueo, tomamos el link iCal o un rango de fechas manual
-          if (colB && colB.startsWith('http')) {
-            icalEncontrado = colB.trim();
-          } else if (colB) {
-            const start = colB.trim().replace(/-/g, '');
-            const end = (colC && colC.trim()) ? colC.trim().replace(/-/g, '') : start;
-            bloquearRangoFechas(start, end);
-          }
-        }
-      }
-
-      if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
-      if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
-      if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
-      if (guia.length > 0) document.getElementById('guia-grid').innerHTML = guia.join('');
-
-      const finalWA = `https://wa.me/${waTel}?text=${encodeURIComponent(waMsg)}`;
-      document.getElementById('ui-btn-wa').href = finalWA;
-      document.getElementById('wa-float').href = finalWA;
-
-      // Cargar calendario iCal si se detectó en la hoja o usar el enlace predeterminado
-      const linkIcalFinal = icalEncontrado || 'https://www.airbnb.mx/calendar/ical/977651411960436380.ics?t=c618c42ba1954c3d9baa76ab8222c952';
-      await cargarCalendarioAirbnb(linkIcalFinal);
+      // Cargar siempre el calendario iCal de Airbnb
+      await cargarCalendarioAirbnb(icalEncontrado);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
