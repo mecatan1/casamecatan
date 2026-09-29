@@ -181,7 +181,7 @@
       background: rgba(10,20,14,0.95); align-items: center; justify-content: center; padding: 16px;
     }
     #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 10px; object-fit: contain; }
-    #lightbox-close { position: absolute; top: 16px; right: 20px; color: white; font-size: 32px; cursor: pointer; }
+    #lightbox-close { position: absolute; top: 16px; right: 20px; color: white; font-size: 36px; cursor: pointer; }
 
     /* WhatsApp Flotante */
     .wa-float {
@@ -241,6 +241,7 @@
       <h2 class="section-title">Conoce cada rincón de <em>tu próximo destino</em></h2>
     </div>
     <div class="grid-3" id="galeria-grid">
+      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="media-card" onclick="abrirLightbox('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80')">
         <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Alberca Privada">
         <h3>Alberca Privada y Jardín</h3>
@@ -263,6 +264,7 @@
       <h2 class="section-title">Comodidades <em>incluidas</em></h2>
     </div>
     <div class="grid-4" id="amenidades-grid">
+      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="amenidad-card">
         <span class="amenidad-icon">🏊</span>
         <h3>Alberca Privada</h3>
@@ -327,6 +329,7 @@
       <h2 class="section-title">Tarifas <em>claras y transparentes</em></h2>
     </div>
     <div class="grid-3" style="justify-content: center; max-width: 780px; margin: 0 auto;" id="precios-grid">
+      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="precio-card">
         <h3>Entre Semana</h3>
         <div class="precio-monto" id="p-regular">$2,500</div>
@@ -348,6 +351,7 @@
       <h2 class="section-title">Recomendaciones en <em>Mecatán y San Blas</em></h2>
     </div>
     <div class="grid-3" id="guia-grid">
+      <!-- Este contenido se sobrescribirá si el Google Sheet responde con datos -->
       <div class="guia-card">
         <div>
           <div class="guia-tag">Aventura</div>
@@ -364,14 +368,6 @@
         </div>
         <a href="https://maps.google.com/?q=San+Blas+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
       </div>
-      <div class="guia-card">
-        <div>
-          <div class="guia-tag">Servicios</div>
-          <h3>Tiendas y Depósitos</h3>
-          <p style="font-size: 13px; margin-top: 6px;">Tiendas de conveniencia en el centro del pueblo para comprar botanas, carne para asar y bebidas.</p>
-        </div>
-        <a href="https://maps.google.com/?q=Mecatan+Nayarit" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a>
-      </div>
     </div>
   </section>
 
@@ -384,7 +380,8 @@
       </p>
 
       <div class="qr-container">
-        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
+        <!-- Código QR hacia tu anuncio de Airbnb -->
+        <img id="ui-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.airbnb.mx/rooms/977651411960436380" alt="QR Anuncio Airbnb">
       </div>
       <p style="font-size: 11px; color: var(--gold2); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px;">
         Escanea con la cámara de tu celular para abrir en Airbnb
@@ -435,6 +432,7 @@
       }
     }
 
+    // Extractor de CSV blindado
     function parseCSV(str) {
       const arr = [];
       let quote = false, row = 0, col = 0;
@@ -453,7 +451,7 @@
       return arr;
     }
 
-    // Extractor de YouTube robusto compatible con watch, youtu.be, embed y shorts
+    // Extractor de YouTube INFALIBLE (soporta watch, youtu.be, embed, shorts, etc.)
     function getYoutubeID(url) {
       if (!url) return null;
       const pattern = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/;
@@ -461,6 +459,7 @@
       return match ? match[1] : null;
     }
 
+    // Cargador de Airbnb a prueba de fallos
     async function cargarCalendarioAirbnb(icalUrl) {
       if (!icalUrl || !icalUrl.startsWith('http')) {
         renderizarCalendario();
@@ -487,6 +486,7 @@
       }
 
       if (icalText) {
+        // Lee el evento sin importar si DTSTART viene antes o después de DTEND
         const vevents = icalText.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g) || [];
         for (let vevent of vevents) {
           const mStart = vevent.match(/DTSTART(?:;[^:]*)?:(\d{8})/);
@@ -499,6 +499,7 @@
       renderizarCalendario();
     }
 
+    // Convertidor de fechas neutral a la zona horaria
     function bloquearRangoFechas(startStr, endStr) {
       const y1 = parseInt(startStr.substr(0,4)), m1 = parseInt(startStr.substr(4,2)) - 1, d1 = parseInt(startStr.substr(6,2));
       const y2 = parseInt(endStr.substr(0,4)), m2 = parseInt(endStr.substr(4,2)) - 1, d2 = parseInt(endStr.substr(6,2));
@@ -581,6 +582,7 @@
       renderizarCalendario();
     }
 
+    // Sincronización Blindada con Google Sheets
     async function sincronizarConGoogleSheets() {
       const endpoints = [
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&_t=${Date.now()}`,
@@ -613,55 +615,74 @@
         let waMsg = 'Hola, me interesa reservar Casa Mecatán';
 
         for (let i = 1; i < data.length; i++) {
-          const [cat, colB, colC, colD, colE] = data[i];
+          // Filtro anti-errores (quita acentos, espacios ocultos y pone minúsculas)
+          let cat = data[i][0] ? data[i][0].normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : '';
+          let colB = data[i][1] ? data[i][1].trim() : '';
+          let colC = data[i][2] ? data[i][2].trim() : '';
+          let colD = data[i][3] ? data[i][3].trim() : '';
+          let colE = data[i][4] ? data[i][4].trim() : '';
+
           if (!cat) continue;
 
-          if (cat === 'Configuracion') {
-            if (colB === 'Nombre_Casa') {
+          if (cat === 'configuracion') {
+            const key = colB.toLowerCase();
+            if (key === 'nombre_casa') {
               document.getElementById('ui-title').innerHTML = `${colC.split(' ')[0]} <em>${colC.split(' ').slice(1).join(' ')}</em>`;
               document.getElementById('ui-logo').innerHTML = `${colC.split(' ')[0]} <span>${colC.split(' ').slice(1).join(' ')}</span>`;
               document.title = colC + " · Tu refugio en Nayarit";
             }
-            if (colB === 'Subtitulo') document.getElementById('ui-subtitle').innerText = colC;
-            if (colB === 'Color_Principal') document.documentElement.style.setProperty('--forest', colC);
-            if (colB === 'Color_Acento') document.documentElement.style.setProperty('--gold', colC);
-            if (colB === 'Telefono_WhatsApp') { waTel = colC; telWhatsappActual = colC; }
-            if (colB === 'Mensaje_WhatsApp') waMsg = colC;
-            if (colB === 'URL_Airbnb' && colC.startsWith('http')) {
+            if (key === 'subtitulo') document.getElementById('ui-subtitle').innerText = colC;
+            if (key === 'color_principal') document.documentElement.style.setProperty('--forest', colC);
+            if (key === 'color_acento') document.documentElement.style.setProperty('--gold', colC);
+            if (key === 'telefono_whatsapp' || key === 'telefono_whats') { waTel = colC; telWhatsappActual = colC; }
+            if (key === 'mensaje_whatsapp' || key === 'mensaje_whats') waMsg = colC;
+            if (key === 'url_airbnb' && colC.startsWith('http')) {
               document.getElementById('ui-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(colC)}`;
               document.getElementById('ui-btn-airbnb').href = colC;
             }
           }
-          if (cat === 'Foto' || cat === 'Video') {
-            const ytId = getYoutubeID(colC);
-            const media = cat === 'Video' && ytId
-              ? `<iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe>`
-              : `<img src="${colC}" alt="${colB}">`;
-            const clickAttr = cat === 'Foto' ? `onclick="abrirLightbox('${colC}')"` : '';
+          
+          if (cat === 'foto' || cat === 'video') {
+            const ytId = getYoutubeID(colC) || getYoutubeID(colB);
+            let media = '';
+            
+            if (cat === 'video' && ytId) {
+              media = `<iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe>`;
+            } else {
+              let urlFoto = colC.startsWith('http') ? colC : colB;
+              let tituloFoto = colC.startsWith('http') ? colB : colC;
+              media = `<img src="${urlFoto}" alt="${tituloFoto}">`;
+            }
+            const clickAttr = cat === 'foto' ? `onclick="abrirLightbox('${colC.startsWith('http') ? colC : colB}')"` : '';
             galeria.push(`<div class="media-card" ${clickAttr}>${media}<h3>${colB}</h3></div>`);
           }
-          if (cat === 'Amenidad') {
+          
+          if (cat === 'amenidad') {
             amenidades.push(`<div class="amenidad-card"><span class="amenidad-icon">${colB}</span><h3>${colC}</h3><p>${colD}</p></div>`);
           }
-          if (cat === 'Tarifa') {
-            const dest = colE === 'Destacado' ? 'destacado' : '';
+          
+          if (cat === 'tarifa' || cat === 'precio') {
+            const dest = colE.toLowerCase() === 'destacado' ? 'destacado' : '';
             const badge = colE ? `<div class="precio-badge">${colE}</div>` : '';
             precios.push(`<div class="precio-card ${dest}">${badge}<h3>${colB}</h3><div class="precio-monto">${colC}</div><p>${colD}</p></div>`);
           }
-          if (cat === 'Guia') {
+          
+          if (cat === 'guia' || cat === 'recomendacion') {
             guia.push(`<div class="guia-card"><div><div class="guia-tag">${colE}</div><h3>${colB}</h3><p style="font-size:13px;margin-top:6px;">${colD}</p></div><a href="${colC}" target="_blank" class="guia-btn">📍 Cómo llegar en Maps</a></div>`);
           }
-          if (cat === 'Bloqueo') {
-            if (colB && colB.startsWith('http')) {
-              icalEncontrado = colB.trim();
+          
+          if (cat === 'bloqueo' || cat === 'calendario') {
+            if (colB.includes('.ics') || colC.includes('.ics')) {
+              icalEncontrado = colB.includes('.ics') ? colB : colC;
             } else if (colB) {
-              const start = colB.trim().replace(/-/g, '');
-              const end = (colC && colC.trim()) ? colC.trim().replace(/-/g, '') : start;
-              bloquearRangoFechas(start, end);
+              const start = colB.replace(/-/g, '');
+              const end = colC ? colC.replace(/-/g, '') : start;
+              if (start.length >= 8) bloquearRangoFechas(start, end);
             }
           }
         }
 
+        // Si se encontraron datos reales, sobrescribe el HTML de respaldo. Si no, mantiene los datos por defecto.
         if (galeria.length > 0) document.getElementById('galeria-grid').innerHTML = galeria.join('');
         if (amenidades.length > 0) document.getElementById('amenidades-grid').innerHTML = amenidades.join('');
         if (precios.length > 0) document.getElementById('precios-grid').innerHTML = precios.join('');
@@ -672,10 +693,11 @@
         document.getElementById('wa-float').href = finalWA;
       }
 
-      // Cargar siempre el calendario iCal de Airbnb
+      // IMPORTANTE: El calendario SIEMPRE se ejecuta, sin importar si el Excel cargó o no.
       await cargarCalendarioAirbnb(icalEncontrado);
     }
 
+    // Iniciador
     window.addEventListener('DOMContentLoaded', () => {
       sincronizarConGoogleSheets();
     });
